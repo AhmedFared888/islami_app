@@ -29,7 +29,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
 
   void _navigateToOnboarding() {
     Future.delayed(const Duration(seconds: 3), () {
-      GoRouter.of(context).push(RoutesManager.onBoardingRoute);
+      GoRouter.of(context).pushReplacement(RoutesManager.onBoardingRoute);
     });
   }
 }

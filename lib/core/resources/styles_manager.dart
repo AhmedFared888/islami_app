@@ -38,6 +38,7 @@ abstract class StylesManager {
     return TextStyle(
       fontSize: FontSizeManager.s24,
       fontWeight: FontWeightManager.bold,
+      color: color,
     );
   }
 

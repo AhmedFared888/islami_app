@@ -5,6 +5,7 @@ abstract class AssetsManager {
   static const splashBackground = '$imagePath/splash_background.png';
 
   // on boarding images
+  static const onboardingbackground = '$imagePath/onboarding_background.png';
   static const doaa = '$imagePath/doaa.png';
   static const quran = '$imagePath/quran.png';
   static const radio = '$imagePath/radio.png';
