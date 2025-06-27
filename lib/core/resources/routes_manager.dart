@@ -12,7 +12,7 @@ class RoutesManager {
   static const String homeRoute = '/home';
   static const String radioRoute = '/radio';
 
-  static final Router = GoRouter(
+  static final router = GoRouter(
     routes: [
       GoRoute(
         path: splashRoute,

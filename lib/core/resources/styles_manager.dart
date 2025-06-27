@@ -2,10 +2,10 @@ import 'package:flutter/widgets.dart';
 import 'package:islami/core/resources/font_manager.dart';
 
 abstract class StylesManager {
-  static TextStyle textStyle20(Color color) {
+  static TextStyle textStyle12(Color color) {
     return TextStyle(
-      fontSize: FontSizeManager.s20,
-      fontWeight: FontWeightManager.bold,
+      fontSize: FontSizeManager.s12,
+      fontWeight: FontWeightManager.semiBold,
       color: color,
     );
   }
@@ -18,10 +18,18 @@ abstract class StylesManager {
     );
   }
 
-  static TextStyle textStyle36(Color color) {
+  static TextStyle textStyle17(Color color) {
     return TextStyle(
-      fontSize: FontSizeManager.s36,
-      fontWeight: FontWeightManager.regular,
+      fontSize: FontSizeManager.s17,
+      fontWeight: FontWeightManager.semiBold,
+      color: color,
+    );
+  }
+
+  static TextStyle textStyle20(Color color) {
+    return TextStyle(
+      fontSize: FontSizeManager.s20,
+      fontWeight: FontWeightManager.bold,
       color: color,
     );
   }
@@ -30,6 +38,14 @@ abstract class StylesManager {
     return TextStyle(
       fontSize: FontSizeManager.s24,
       fontWeight: FontWeightManager.bold,
+    );
+  }
+
+  static TextStyle textStyle36(Color color) {
+    return TextStyle(
+      fontSize: FontSizeManager.s36,
+      fontWeight: FontWeightManager.regular,
+      color: color,
     );
   }
 }
