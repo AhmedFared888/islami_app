@@ -1,7 +1,7 @@
-const String imagePath = 'assets/images/';
+const String imagePath = 'assets/images';
 
-class AssetsManager {
-  static const splashBackground = '$imagePath splash_backGround.png';
-  static const homeBackground = '$imagePath home_backGround.png';
-  static const radioBackground = '$imagePath radio_backGround.png';
+abstract class AssetsManager {
+  static const splashBackground = '$imagePath/splash_background.png';
+  static const homeBackground = '$imagePath/home_background.png';
+  static const radioBackground = '$imagePath/radio_background.png';
 }

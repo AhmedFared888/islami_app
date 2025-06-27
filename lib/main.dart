@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami/core/resources/routes_manager.dart';
 
 void main() {
   runApp(Islami());
@@ -9,6 +10,9 @@ class Islami extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false);
+    return MaterialApp.router(
+      debugShowCheckedModeBanner: false,
+      routerConfig: RoutesManager.router,
+    );
   }
 }
