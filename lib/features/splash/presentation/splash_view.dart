@@ -1,15 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:islami/features/splash/presentation/widgets/splash_view_body.dart';
 
-class SplashView extends StatefulWidget {
+class SplashView extends StatelessWidget {
   const SplashView({super.key});
 
   @override
-  State<SplashView> createState() => _SplashViewState();
-}
-
-class _SplashViewState extends State<SplashView> {
-  @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return SplashViewBody();
   }
 }
