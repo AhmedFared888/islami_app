@@ -8,10 +8,7 @@ class OnboardingViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: ColorManager.backGroundColor,
-      body: Column(children: [
-
-        ],
-      ),
+      body: Column(children: [Text()]),
     );
   }
 }
