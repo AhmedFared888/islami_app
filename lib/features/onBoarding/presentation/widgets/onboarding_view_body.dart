@@ -35,7 +35,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
       children: [
         Positioned.fill(
           child: Image.asset(
-            AssetsManager.onboardingbackground,
+            AssetsManager.onboardingBackground,
             fit: BoxFit.cover,
           ),
         ),
