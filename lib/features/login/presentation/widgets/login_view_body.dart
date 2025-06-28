@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:islami/core/resources/color_manager.dart';
+import 'package:islami/core/resources/routes_manager.dart';
 import 'package:islami/core/resources/strings_manager.dart';
 import 'package:islami/core/resources/styles_manager.dart';
 import 'package:islami/core/resources/values_manager.dart';
 import 'package:islami/core/widgets/custom_text_form_field.dart';
+import 'package:islami/features/login/presentation/manager/cubit/login_cubit.dart';
 import 'package:islami/features/login/presentation/widgets/logo_object.dart';
 
 class LoginViewBody extends StatelessWidget {
@@ -15,85 +19,102 @@ class LoginViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: ColorManager.backGroundColor,
-      body: Center(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: AppPadding.p20),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                LogoObject(),
-                SizedBox(height: AppSize.s40),
-                CustomTextFormField(
-                  textEditingController: _userNameController,
-                  hintText: StringsManager.userName,
-                  labelText: StringsManager.userName,
-                  keyboardType: TextInputType.emailAddress,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Email cannot be empty';
-                    } else if (!value.contains('@')) {
-                      return 'Enter a valid email';
-                    }
-                    return null;
-                  },
-                ),
-                SizedBox(height: AppSize.s30),
-                CustomTextFormField(
-                  textEditingController: _passwordController,
-                  hintText: StringsManager.password,
-                  labelText: StringsManager.password,
-                  isPassword: true,
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Password cannot be empty';
-                    }
-                    return null;
-                  },
-                ),
-                SizedBox(height: AppSize.s30),
-                ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      // valid input
-                    }
-                  },
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: AppSize.s140),
-                    child: Text(StringsManager.login),
-                  ),
-                ),
-                Row(
+    return BlocConsumer<LoginCubit, LoginState>(
+      listener: (context, state) {
+        if (state is LoginLoading) {
+        } else if (state is LoginSuccess) {
+          GoRouter.of(context).pushReplacement(RoutesManager.homeRoute);
+        } else if (state is LoginFailure) {
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text(state.errorMessage)));
+        }
+      },
+      builder: (context, state) {
+        return Scaffold(
+          backgroundColor: ColorManager.backGroundColor,
+          body: Center(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: AppPadding.p20),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        StringsManager.forgetPassword,
-                        style: StylesManager.textStyle14(
-                          ColorManager.primaryColor,
-                        ),
+                    LogoObject(),
+                    SizedBox(height: AppSize.s40),
+                    CustomTextFormField(
+                      textEditingController: _userNameController,
+                      hintText: StringsManager.userName,
+                      labelText: StringsManager.userName,
+                      keyboardType: TextInputType.emailAddress,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Email cannot be empty';
+                        } else if (!value.contains('@')) {
+                          return 'Enter a valid email';
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: AppSize.s30),
+                    CustomTextFormField(
+                      textEditingController: _passwordController,
+                      hintText: StringsManager.password,
+                      labelText: StringsManager.password,
+                      isPassword: true,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Password cannot be empty';
+                        }
+                        return null;
+                      },
+                    ),
+                    SizedBox(height: AppSize.s30),
+                    ElevatedButton(
+                      onPressed: () {
+                        if (_formKey.currentState!.validate()) {
+                          BlocProvider.of<LoginCubit>(context).loginUser(
+                            email: _userNameController.text.trim(),
+                            password: _passwordController.text.trim(),
+                          );
+                        }
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: AppSize.s140),
+                        child: Text(StringsManager.login),
                       ),
                     ),
-                    Spacer(),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        StringsManager.registerText,
-                        style: StylesManager.textStyle14(
-                          ColorManager.primaryColor,
+                    Row(
+                      children: [
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            StringsManager.forgetPassword,
+                            style: StylesManager.textStyle14(
+                              ColorManager.primaryColor,
+                            ),
+                          ),
                         ),
-                      ),
+                        Spacer(),
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            StringsManager.registerText,
+                            style: StylesManager.textStyle14(
+                              ColorManager.primaryColor,
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-              ],
+              ),
             ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }
