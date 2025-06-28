@@ -75,5 +75,8 @@ ThemeData getApptheme() {
         borderRadius: const BorderRadius.all(Radius.circular(AppSize.s8)),
       ),
     ),
+    textTheme: TextTheme(
+      bodyLarge: StylesManager.textStyle17(ColorManager.primaryColor),
+    ),
   );
 }
