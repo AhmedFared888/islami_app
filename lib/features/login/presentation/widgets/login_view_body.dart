@@ -6,6 +6,7 @@ import 'package:islami/core/resources/routes_manager.dart';
 import 'package:islami/core/resources/strings_manager.dart';
 import 'package:islami/core/resources/styles_manager.dart';
 import 'package:islami/core/resources/values_manager.dart';
+import 'package:islami/core/widgets/custom_loading_indicator.dart';
 import 'package:islami/core/widgets/custom_text_form_field.dart';
 import 'package:islami/features/login/presentation/manager/cubit/login_cubit.dart';
 import 'package:islami/features/login/presentation/widgets/logo_object.dart';
@@ -22,9 +23,16 @@ class LoginViewBody extends StatelessWidget {
     return BlocConsumer<LoginCubit, LoginState>(
       listener: (context, state) {
         if (state is LoginLoading) {
+          showDialog(
+            context: context,
+            barrierDismissible: false,
+            builder: (_) => const CustomLoadingIndicator(),
+          );
         } else if (state is LoginSuccess) {
+          Navigator.of(context).pop();
           GoRouter.of(context).pushReplacement(RoutesManager.homeRoute);
         } else if (state is LoginFailure) {
+          Navigator.of(context).pop();
           ScaffoldMessenger.of(
             context,
           ).showSnackBar(SnackBar(content: Text(state.errorMessage)));
