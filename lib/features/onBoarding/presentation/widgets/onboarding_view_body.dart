@@ -43,7 +43,11 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
           backgroundColor: Colors.transparent,
           body: Expanded(
             child: Padding(
-              padding: const EdgeInsets.only(top: AppPadding.p200),
+              padding: const EdgeInsets.only(
+                top: AppPadding.p200,
+                right: AppPadding.p14,
+                left: AppPadding.p14,
+              ),
               child: Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -57,6 +61,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                     SizedBox(height: AppSize.s20),
                     Text(
                       model.subTitle,
+                      textAlign: TextAlign.center,
                       style: StylesManager.textStyle14(ColorManager.lightGrey),
                     ),
                     SizedBox(height: AppSize.s20),
@@ -67,7 +72,12 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                         color: ColorManager.primaryColor,
                         borderRadius: BorderRadius.circular(AppSize.s18),
                       ),
-                      child: Image.asset(model.image, height: AppSize.s250),
+                      child: Image.asset(
+                        model.image,
+                        height: AppSize.s250,
+                        color: ColorManager.black,
+                        colorBlendMode: BlendMode.srcIn,
+                      ),
                     ),
                     Spacer(),
                     Row(

@@ -1,11 +1,14 @@
 abstract class StringsManager {
   // onboarding strings
-  static const String onboardingTitle1 = 'Onboarding Title 1';
-  static const String onboardingTitle2 = 'Onboarding Title 2';
-  static const String onboardingTitle3 = 'Onboarding Title 3';
-  static const String onboardingSubTitle1 = 'Onboarding SubTitle 1';
-  static const String onboardingSubTitle2 = 'Onboarding SubTitle 2';
-  static const String onboardingSubTitle3 = 'Onboarding SubTitle 3';
+  static const String onboardingTitle1 = 'Read & Reflect';
+  static const String onboardingTitle2 = 'Live the Sunnah';
+  static const String onboardingTitle3 = 'Listen & Stay Connected';
+  static const String onboardingSubTitle1 =
+      'Immerse yourself in the Holy Quran with beautiful recitations and simple, clear explanations to help you reflect deeply.';
+  static const String onboardingSubTitle2 =
+      'Explore authentic Hadiths of the Prophet ﷺ, organized and simplified for easier understanding and daily inspiration.';
+  static const String onboardingSubTitle3 =
+      'Enjoy 24/7 Islamic Radio: Quran recitations, daily remembrances, and inspiring Islamic talks — anytime, anywhere.';
 
   // login strings
   static const userName = 'Username';
