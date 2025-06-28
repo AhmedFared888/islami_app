@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -10,7 +11,13 @@ class LoginCubit extends Cubit<LoginState> {
     required String email,
     required String password,
   }) async {
-    UserCredential user = await FirebaseAuth.instance
-        .signInWithEmailAndPassword(email: email, password: password);
+    emit(LoginLoading());
+    try {
+      UserCredential user = await FirebaseAuth.instance
+          .signInWithEmailAndPassword(email: email, password: password);
+      emit(LoginSuccess());
+    } on Exception catch (e) {
+      emit(LoginFailure());
+    }
   }
 }
