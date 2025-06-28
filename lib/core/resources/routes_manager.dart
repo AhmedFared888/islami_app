@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:islami/features/home/presentation/home_view.dart';
+import 'package:islami/features/login/data/auth_repository_impl.dart';
+import 'package:islami/features/login/domain/usecases/login_usecase.dart';
 import 'package:islami/features/login/presentation/login_view.dart';
 import 'package:islami/features/login/presentation/manager/cubit/login_cubit.dart';
 import 'package:islami/features/onBoarding/presentation/onboarding_view.dart';
@@ -27,7 +30,9 @@ class RoutesManager {
       GoRoute(
         path: loginRoute,
         builder: (context, stste) => BlocProvider(
-          create: (context) => LoginCubit(),
+          create: (_) => LoginCubit(
+            LoginUseCase(AuthRepositoryImpl(FirebaseAuth.instance)),
+          ),
           child: const LoginView(),
         ),
       ),

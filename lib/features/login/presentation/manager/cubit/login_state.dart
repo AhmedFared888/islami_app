@@ -7,7 +7,11 @@ final class LoginInitial extends LoginState {}
 
 final class LoginLoading extends LoginState {}
 
-final class LoginSuccess extends LoginState {}
+final class LoginSuccess extends LoginState {
+  final UserEntity user;
+
+  LoginSuccess({required this.user});
+}
 
 class LoginFailure extends LoginState {
   final String errorMessage;
