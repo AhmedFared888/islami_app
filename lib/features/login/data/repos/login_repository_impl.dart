@@ -2,12 +2,12 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:islami/core/errors/failure.dart';
 import 'package:islami/features/login/domain/entities/user_entity.dart';
-import 'package:islami/features/login/domain/repos/auth_repository.dart';
+import 'package:islami/features/login/domain/repos/login_repository.dart';
 
-class AuthRepositoryImpl implements AuthRepository {
+class LoginRepositoryImpl implements LoginRepository {
   final FirebaseAuth firebaseAuth;
 
-  AuthRepositoryImpl(this.firebaseAuth);
+  LoginRepositoryImpl(this.firebaseAuth);
 
   @override
   Future<Either<Failure, UserEntity>> login({
