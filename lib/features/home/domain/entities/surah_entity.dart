@@ -1,12 +1,12 @@
 class SurahEntity {
-  final int number;
-  final String name;
+  final int numberOfSurah;
+  final String enName;
   final int versesNumber;
-  final String arabicName;
+  final String arName;
   SurahEntity({
-    required this.number,
-    required this.name,
+    required this.numberOfSurah,
+    required this.enName,
     required this.versesNumber,
-    required this.arabicName,
+    required this.arName,
   });
 }
