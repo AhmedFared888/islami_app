@@ -16,6 +16,7 @@ abstract class AssetsManager {
   // home images
   static const homeBackground = '$imagePath/home_background.png';
   static const homeLogo = '$imagePath/home_logo.png';
+  static const listTileLeading = '$imagePath/list_tile_leading.png';
 
   // radio images
   static const radioBackground = '$imagePath/radio_background.png';

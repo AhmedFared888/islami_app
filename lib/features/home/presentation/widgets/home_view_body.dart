@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami/core/resources/assets_manager.dart';
 import 'package:islami/core/resources/values_manager.dart';
+import 'package:islami/features/home/presentation/widgets/home_list_view.dart';
 
 import '../../../../core/resources/color_manager.dart';
 
@@ -34,6 +35,8 @@ class HomeViewBody extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: AppSize.s10),
+                Expanded(child: HomeListView()),
               ],
             ),
           ),
