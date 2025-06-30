@@ -1,4 +1,6 @@
+import 'package:islami/constants.dart';
 import 'package:islami/core/utils/api_service.dart';
+import 'package:islami/core/utils/functions/save_surahs.dart';
 import 'package:islami/features/home/data/models/surah_model.dart';
 import 'package:islami/features/home/domain/entities/surah_entity.dart';
 
@@ -17,6 +19,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     for (var surahMap in data['data']) {
       surahs.add(SurahModel.fromJson(surahMap));
     }
+    saveSurahsData(surahs, kSurahsBox);
     return surahs;
   }
 }
