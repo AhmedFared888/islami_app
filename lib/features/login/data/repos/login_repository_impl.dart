@@ -20,7 +20,7 @@ class LoginRepositoryImpl implements LoginRepository {
       final user = userCredential.user!;
       return Right(UserEntity(uid: user.uid, email: user.email ?? ''));
     } on FirebaseAuthException catch (e) {
-      return Left(Failure(e.message ?? 'Login failed'));
+      return Left(Failure(e.message?.toString() ?? 'Login failed'));
     }
   }
 }
