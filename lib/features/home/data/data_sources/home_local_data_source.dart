@@ -10,6 +10,8 @@ class HomeLocalDataSourceImpl extends HomeLocalDataSource {
   @override
   List<SurahEntity> fetchSurahs() {
     var box = Hive.box<SurahEntity>(kSurahsBox);
+
+    print(box);
     return box.values.toList();
   }
 }

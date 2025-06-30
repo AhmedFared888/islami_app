@@ -7,10 +7,10 @@ final class FetchSurahsInitial extends FetchSurahsState {}
 
 final class FetchSurahsLoading extends FetchSurahsState {}
 
-final class FetchSurahsSuccesse extends FetchSurahsState {
+final class FetchSurahsSuccess extends FetchSurahsState {
   final List<SurahEntity> surahs;
 
-  FetchSurahsSuccesse(this.surahs);
+  FetchSurahsSuccess(this.surahs);
 }
 
 final class FetchSurahsFailure extends FetchSurahsState {

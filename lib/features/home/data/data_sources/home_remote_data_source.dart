@@ -20,6 +20,8 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
       surahs.add(SurahModel.fromJson(surahMap));
     }
     saveSurahsData(surahs, kSurahsBox);
+
+    print(data);
     return surahs;
   }
 }

@@ -22,8 +22,11 @@ class HomeRepoImpl extends HomeRepo {
         return right(surahsLocal);
       }
       var surahs = await homeRemoteDataSource.fetchSurahs();
+
       return right(surahs);
-    } catch (e) {
+    } catch (e, s) {
+      print(s);
+      print(e);
       if (e is DioException) {
         return left(ServerFailre.fromDioException(e));
       } else {

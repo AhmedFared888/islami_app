@@ -18,7 +18,7 @@ class FetchSurahsCubit extends Cubit<FetchSurahsState> {
         emit(FetchSurahsFailure(failure.message));
       },
       (surahs) {
-        emit(FetchSurahsSuccesse(surahs));
+        emit(FetchSurahsSuccess(surahs));
       },
     );
   }
