@@ -13,6 +13,11 @@ abstract class AssetsManager {
   static const quran = '$imagePath/quran.png';
   static const radio = '$imagePath/radio.png';
 
+  // bottom navigation bar icons
+  static const quranBook = '$imagePath/quran_book.png';
+  static const hadethBook = '$imagePath/hadeth_book.png';
+  static const radioLogo = '$imagePath/radio_logo.png';
+
   // home images
   static const homeBackground = '$imagePath/home_background.png';
   static const homeLogo = '$imagePath/home_logo.png';
