@@ -5,6 +5,8 @@ class SurahDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: Text('you are now in surah details screen'));
+    return Scaffold(
+      body: Center(child: Text('you are now in surah details screen')),
+    );
   }
 }
