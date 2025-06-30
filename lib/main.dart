@@ -12,7 +12,7 @@ void main() async {
 
   await Hive.initFlutter();
   Hive.registerAdapter(SurahEntityAdapter());
-  await Hive.openBox(kSurahsBox);
+  await Hive.openBox<SurahEntity>(kSurahsBox);
 
   runApp(Islami());
 }
