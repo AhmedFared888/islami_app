@@ -48,9 +48,9 @@ class RoutesManager {
           child: const LoginView(),
         ),
       ),
-      GoRoute(path: mainRoute, builder: (context, state) => const MainView()),
+      GoRoute(path: homeRoute, builder: (context, state) => const HomeView()),
       GoRoute(
-        path: homeRoute,
+        path: mainRoute,
         builder: (context, state) => BlocProvider(
           create: (context) => FetchSurahsCubit(
             HomeUseCase(
@@ -61,8 +61,8 @@ class RoutesManager {
                 ),
               ),
             ),
-          ),
-          child: const HomeView(),
+          )..fetshSurahs(),
+          child: const MainView(),
         ),
       ),
       GoRoute(
