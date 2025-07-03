@@ -1,6 +1,8 @@
-class SurahDetailsEntity {
-  final int ayahNumberInSurah;
-  final String ayahBody;
+import 'package:islami/features/home/domain/entities/ayah_entity.dart';
 
-  SurahDetailsEntity({required this.ayahNumberInSurah, required this.ayahBody});
+class SurahDetailsEntity {
+  final String surahTitle;
+  final List<AyahEntity> ayahs;
+
+  SurahDetailsEntity({required this.surahTitle, required this.ayahs});
 }
