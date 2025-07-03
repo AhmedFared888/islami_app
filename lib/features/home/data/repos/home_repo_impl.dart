@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:islami/core/errors/failure.dart';
 import 'package:islami/features/home/data/data_sources/home_local_data_source.dart';
 import 'package:islami/features/home/data/data_sources/home_remote_data_source.dart';
+import 'package:islami/features/home/domain/entities/surah_details_entity.dart';
 import 'package:islami/features/home/domain/entities/surah_entity.dart';
 import 'package:islami/features/home/domain/repos/home_repo.dart';
 
@@ -33,5 +34,13 @@ class HomeRepoImpl extends HomeRepo {
         return left(ServerFailre(e.toString()));
       }
     }
+  }
+
+  @override
+  Future<Either<Failure, List<SurahDetailsEntity>>> fetchSurahDetails(
+    int surahId,
+  ) {
+    // TODO: implement fetchSurahDetails
+    throw UnimplementedError();
   }
 }
