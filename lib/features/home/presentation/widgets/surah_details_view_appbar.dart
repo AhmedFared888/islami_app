@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:islami/core/resources/color_manager.dart';
 
 class SurahDetailsViewAppBar extends StatelessWidget
@@ -9,7 +10,13 @@ class SurahDetailsViewAppBar extends StatelessWidget
   Widget build(BuildContext context) {
     return AppBar(
       title: Text('Al-Fatiha'),
-      leading: Icon(Icons.arrow_back_rounded, color: ColorManager.primaryColor),
+      leading: IconButton(
+        color: ColorManager.primaryColor,
+        onPressed: () {
+          GoRouter.of(context).pop();
+        },
+        icon: Icon(Icons.arrow_back_rounded),
+      ),
     );
   }
 
