@@ -23,6 +23,10 @@ abstract class AssetsManager {
   static const homeLogo = '$imagePath/home_logo.png';
   static const listTileLeading = '$imagePath/list_tile_leading.png';
 
+  // surah details view icons
+  static const leftCorner = '$imagePath/left_corner.png';
+  static const rightCorner = '$imagePath/right_corner.png';
+
   // radio images
   static const radioBackground = '$imagePath/radio_background.png';
 }
