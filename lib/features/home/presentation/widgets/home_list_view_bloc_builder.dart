@@ -12,7 +12,7 @@ class HomeListViewBlocBuilder extends StatelessWidget {
     return BlocBuilder<FetchSurahsCubit, FetchSurahsState>(
       builder: (context, state) {
         if (state is FetchSurahsSuccess) {
-          return HomeListView();
+          return HomeListView(surahs: state.surahs);
         } else if (state is FetchSurahsFailure) {
           return Center(child: Text(state.errorMessage));
         } else {
