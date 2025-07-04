@@ -7,7 +7,7 @@ import 'package:islami/features/home/data/data_sources/home_local_data_source.da
 import 'package:islami/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:islami/features/home/data/repos/home_repo_impl.dart';
 import 'package:islami/features/home/domain/usecases/home_use_case.dart';
-import 'package:islami/features/home/presentation/manager/cubit/fetch_surahs_cubit.dart';
+import 'package:islami/features/home/presentation/manager/fetch_surahs_cubit/fetch_surahs_cubit.dart';
 import 'package:islami/features/home/presentation/views/home_view.dart';
 import 'package:islami/features/home/presentation/views/surah_details_view.dart';
 import 'package:islami/features/login/data/repos/login_repository_impl.dart';
