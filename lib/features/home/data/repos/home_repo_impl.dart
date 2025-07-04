@@ -37,10 +37,28 @@ class HomeRepoImpl extends HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<SurahDetailsEntity>>> fetchSurahDetails(
+  Future<Either<Failure, SurahDetailsEntity>> fetchSurahDetails(
     int surahId,
-  ) {
-    // TODO: implement fetchSurahDetails
-    throw UnimplementedError();
+  ) async {
+    try {
+      final surahDetailsLocal = homeLocalDataSource.fetchSurahDetails(surahId);
+
+      if (surahDetailsLocal != null) {
+        return right(surahDetailsLocal);
+      }
+
+      final surahDetails = await homeRemoteDataSource.fetchSurahDetails(
+        surahId,
+      );
+      return right(surahDetails);
+    } catch (e, s) {
+      print(s);
+      print(e);
+      if (e is DioException) {
+        return left(ServerFailre.fromDioException(e));
+      } else {
+        return left(ServerFailre(e.toString()));
+      }
+    }
   }
 }
