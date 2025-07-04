@@ -22,7 +22,11 @@ class SurahDetailsModel extends SurahDetailsEntity {
     this.numberOfAyahs,
     this.ayahModel,
     this.edition,
-  }) : super(surahTitle: name ?? '', ayahs: ayahModel ?? []);
+  }) : super(
+         surahTitle: name ?? '',
+         ayahs: ayahModel ?? [],
+         surahNumber: number!,
+       );
 
   factory SurahDetailsModel.fromJson(Map<String, dynamic> json) {
     return SurahDetailsModel(

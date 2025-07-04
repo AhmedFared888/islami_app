@@ -6,7 +6,5 @@ import '../entities/surah_details_entity.dart';
 
 abstract class HomeRepo {
   Future<Either<Failure, List<SurahEntity>>> fetchSurahs();
-  Future<Either<Failure, List<SurahDetailsEntity>>> fetchSurahDetails(
-    int surahId,
-  );
+  Future<Either<Failure, SurahDetailsEntity>> fetchSurahDetails(int surahId);
 }

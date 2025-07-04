@@ -6,6 +6,7 @@ import 'package:islami/constants.dart';
 import 'package:islami/core/resources/routes_manager.dart';
 import 'package:islami/core/resources/theme_manager.dart';
 import 'package:islami/core/utils/simple_bloc_observer.dart';
+import 'package:islami/features/home/domain/entities/surah_details_entity.dart';
 import 'package:islami/features/home/domain/entities/surah_entity.dart';
 
 void main() async {
@@ -15,6 +16,8 @@ void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(SurahEntityAdapter());
   await Hive.openBox<SurahEntity>(kSurahsBox);
+  Hive.registerAdapter(SurahDetailsEntityAdapter());
+  await Hive.openBox<SurahDetailsEntity>(kSurahDetailsBox);
 
   Bloc.observer = SimpleBlocObserver();
 
