@@ -1,5 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:islami/core/utils/api_service.dart';
@@ -7,6 +8,8 @@ import 'package:islami/features/home/data/data_sources/home_local_data_source.da
 import 'package:islami/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:islami/features/home/data/repos/home_repo_impl.dart';
 import 'package:islami/features/home/domain/usecases/home_use_case.dart';
+import 'package:islami/features/home/domain/usecases/surah_details_use_case.dart';
+import 'package:islami/features/home/presentation/manager/fetch_surah_details_cubit/fetch_surah_details_cubit.dart';
 import 'package:islami/features/home/presentation/manager/fetch_surahs_cubit/fetch_surahs_cubit.dart';
 import 'package:islami/features/home/presentation/views/home_view.dart';
 import 'package:islami/features/home/presentation/views/surah_details_view.dart';
@@ -68,7 +71,25 @@ class RoutesManager {
       GoRoute(
         path: surahDetailsRoute,
         builder: (context, state) {
-          return SurahDetailsView();
+          final surahId = state.extra as int?;
+          if (surahId == null) {
+            return const Scaffold(
+              body: Center(child: Text('حدث خطأ: السورة غير موجودة')),
+            );
+          }
+          return BlocProvider(
+            create: (context) => FetchSurahDetailsCubit(
+              SurahDetailsUseCase(
+                HomeRepoImpl(
+                  homeLocalDataSource: HomeLocalDataSourceImpl(),
+                  homeRemoteDataSource: HomeRemoteDataSourceImpl(
+                    ApiService(Dio()),
+                  ),
+                ),
+              ),
+            )..fetchSurahDetails(surahId),
+            child: SurahDetailsView(),
+          );
         },
       ),
       GoRoute(path: radioRoute, builder: (context, state) => const RadioView()),
