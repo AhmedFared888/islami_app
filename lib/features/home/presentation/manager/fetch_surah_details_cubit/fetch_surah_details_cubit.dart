@@ -11,7 +11,7 @@ class FetchSurahDetailsCubit extends Cubit<FetchSurahDetailsState> {
 
   final SurahDetailsUseCase surahDetailsUseCase;
 
-  Future<void> fetshSurahDetails(int surahId) async {
+  Future<void> fetchSurahDetails(int surahId) async {
     emit(FetchSurahDetailsLoading());
     var result = await surahDetailsUseCase.execute(surahId);
     result.fold(

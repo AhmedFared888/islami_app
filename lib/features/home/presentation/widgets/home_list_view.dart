@@ -15,7 +15,10 @@ class HomeListView extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            GoRouter.of(context).push(RoutesManager.surahDetailsRoute);
+            GoRouter.of(context).push(
+              RoutesManager.surahDetailsRoute,
+              extra: surahs[index].numberOfSurah,
+            );
           },
           child: HomeListViewItem(surah: surahs[index]),
         );
