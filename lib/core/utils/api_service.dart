@@ -29,7 +29,7 @@ class AudioService {
     } else {
       await _player.play();
     }
-    _isPlaying = _player.playing;
+    _isPlaying = !_isPlaying;
     return AudioState(isPlaying: _isPlaying);
   }
 

@@ -4,7 +4,9 @@ import 'package:islami/core/resources/color_manager.dart';
 import 'package:islami/core/resources/strings_manager.dart';
 import 'package:islami/core/resources/styles_manager.dart';
 import 'package:islami/core/resources/values_manager.dart';
-import 'package:just_audio/just_audio.dart';
+import 'package:islami/core/utils/api_service.dart';
+import 'package:islami/features/radio/domain/entities/audio_state%20.dart';
+import 'package:islami/features/radio/domain/usecases/toggle_radio_use_case.dart';
 
 class RadioViewBody extends StatefulWidget {
   const RadioViewBody({super.key});
@@ -14,28 +16,33 @@ class RadioViewBody extends StatefulWidget {
 }
 
 class _RadioViewBodyState extends State<RadioViewBody> {
-  final AudioPlayer _player = AudioPlayer();
+  final AudioService _audioService = AudioService();
+  late final ToggleRadioUseCase _toggleUseCase;
 
-  final String _radioUrl =
-      'https://n0e.radiojar.com/8s5u5tpdtwzuv?rj-ttl=5&rj-tok=AAABjW7yROAA0TUU8cXhXIAi6g';
+  bool _isPlaying = false;
 
   @override
   void initState() {
     super.initState();
-    _init();
+    _toggleUseCase = ToggleRadioUseCase(_audioService);
   }
 
-  Future<void> _init() async {
-    try {
-      await _player.setUrl(_radioUrl);
-    } catch (e) {
-      print('Error loading stream: $e');
-    }
+  Future<void> _togglePlayPause() async {
+    final result = await _toggleUseCase.execute();
+    if (!mounted) return;
+    result.fold((failure) => print('Error: ${failure.message}'), (
+      AudioState state,
+    ) {
+      if (!mounted) return;
+      setState(() {
+        _isPlaying = state.isPlaying;
+      });
+    });
   }
 
   @override
   void dispose() {
-    _player.dispose();
+    _audioService.dispose(); // Important to stop the player
     super.dispose();
   }
 
@@ -51,7 +58,7 @@ class _RadioViewBodyState extends State<RadioViewBody> {
           child: Column(
             children: [
               Center(child: Image.asset(AssetsManager.homeLogo)),
-              SizedBox(height: AppSize.s10),
+              const SizedBox(height: AppSize.s10),
               Center(child: Image.asset(AssetsManager.radio)),
               Container(
                 width: AppSize.s350,
@@ -64,7 +71,7 @@ class _RadioViewBodyState extends State<RadioViewBody> {
                   children: [
                     Column(
                       children: [
-                        Spacer(),
+                        const Spacer(),
                         Image.asset(AssetsManager.radioButtonBackground),
                       ],
                     ),
@@ -78,22 +85,14 @@ class _RadioViewBodyState extends State<RadioViewBody> {
                             ),
                           ),
                         ),
-                        SizedBox(height: AppSize.s10),
-                        StreamBuilder<bool>(
-                          stream: _player.playingStream,
-                          builder: (context, snapshot) {
-                            final isPlaying = snapshot.data ?? false;
-                            return IconButton(
-                              onPressed: () {
-                                isPlaying ? _player.pause() : _player.play();
-                              },
-                              icon: Icon(
-                                isPlaying ? Icons.pause : Icons.play_arrow,
-                                size: AppSize.s55,
-                                color: ColorManager.black,
-                              ),
-                            );
-                          },
+                        const SizedBox(height: AppSize.s10),
+                        IconButton(
+                          onPressed: _togglePlayPause,
+                          icon: Icon(
+                            _isPlaying ? Icons.pause : Icons.play_arrow,
+                            size: AppSize.s55,
+                            color: ColorManager.black,
+                          ),
                         ),
                       ],
                     ),
