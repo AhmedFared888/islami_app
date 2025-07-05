@@ -29,4 +29,5 @@ abstract class AssetsManager {
 
   // radio images
   static const radioBackground = '$imagePath/radio_background.png';
+  static const radioButtonBackground = '$imagePath/radio_button_background.png';
 }
