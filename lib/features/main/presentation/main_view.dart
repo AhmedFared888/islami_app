@@ -3,7 +3,7 @@ import 'package:islami/core/resources/assets_manager.dart';
 import 'package:islami/core/resources/color_manager.dart';
 import 'package:islami/features/hadeth/presentation/hadeth_view.dart';
 import 'package:islami/features/home/presentation/views/home_view.dart';
-import 'package:islami/features/radio/presentation/radio_view.dart';
+import 'package:islami/features/radio/presentation/views/radio_view.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});

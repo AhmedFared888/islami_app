@@ -19,7 +19,7 @@ import 'package:islami/features/login/domain/usecases/login_usecase.dart';
 import 'package:islami/features/login/presentation/login_view.dart';
 import 'package:islami/features/login/presentation/manager/cubit/login_cubit.dart';
 import 'package:islami/features/onBoarding/presentation/onboarding_view.dart';
-import 'package:islami/features/radio/presentation/radio_view.dart';
+import 'package:islami/features/radio/presentation/views/radio_view.dart';
 import 'package:islami/features/splash/presentation/splash_view.dart';
 
 import '../../features/main/presentation/main_view.dart';
