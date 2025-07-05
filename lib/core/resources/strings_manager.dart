@@ -18,4 +18,7 @@ abstract class StringsManager {
   static const passwordError = 'Please enter your Password';
   static const forgetPassword = 'Forget password';
   static const registerText = 'Not a member ? Sign up';
+
+  // radio strings
+  static const quranKareemRadio = 'اذاعه القرآن الكريم';
 }

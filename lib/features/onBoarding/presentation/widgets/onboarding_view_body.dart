@@ -81,8 +81,8 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                     ),
                     Spacer(),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
                       children: [
-                        Spacer(),
                         Padding(
                           padding: const EdgeInsets.only(right: AppPadding.p10),
                           child: TextButton(
@@ -97,6 +97,7 @@ class _OnboardingViewBodyState extends State<OnboardingViewBody> {
                         ),
                       ],
                     ),
+                    SizedBox(height: AppSize.s10),
                   ],
                 ),
               ),

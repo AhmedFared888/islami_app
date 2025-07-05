@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:islami/core/resources/assets_manager.dart';
 import 'package:islami/core/resources/color_manager.dart';
+import 'package:islami/core/resources/strings_manager.dart';
+import 'package:islami/core/resources/styles_manager.dart';
 import 'package:islami/core/resources/values_manager.dart';
 import 'package:just_audio/just_audio.dart';
 
@@ -17,8 +19,6 @@ class _RadioViewBodyState extends State<RadioViewBody> {
   final String _radioUrl =
       'https://n0e.radiojar.com/8s5u5tpdtwzuv?rj-ttl=5&rj-tok=AAABjW7yROAA0TUU8cXhXIAi6g';
 
-  bool _isPlaying = false;
-
   @override
   void initState() {
     super.initState();
@@ -31,17 +31,6 @@ class _RadioViewBodyState extends State<RadioViewBody> {
     } catch (e) {
       print('Error loading stream: $e');
     }
-  }
-
-  void _togglePlayPause() {
-    if (_player.playing) {
-      _player.pause();
-    } else {
-      _player.play();
-    }
-    setState(() {
-      _isPlaying = _player.playing;
-    });
   }
 
   @override
@@ -67,9 +56,48 @@ class _RadioViewBodyState extends State<RadioViewBody> {
               Container(
                 width: AppSize.s350,
                 height: AppSize.s150,
-                decoration: BoxDecoration(color: ColorManager.primaryColor),
+                decoration: BoxDecoration(
+                  color: ColorManager.primaryColor,
+                  borderRadius: BorderRadius.circular(AppSize.s16),
+                ),
                 child: Stack(
-                  children: [Image.asset(AssetsManager.radioButtonBackground)],
+                  children: [
+                    Column(
+                      children: [
+                        Spacer(),
+                        Image.asset(AssetsManager.radioButtonBackground),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        Center(
+                          child: Text(
+                            StringsManager.quranKareemRadio,
+                            style: StylesManager.textStyle36(
+                              ColorManager.white,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: AppSize.s10),
+                        StreamBuilder<bool>(
+                          stream: _player.playingStream,
+                          builder: (context, snapshot) {
+                            final isPlaying = snapshot.data ?? false;
+                            return IconButton(
+                              onPressed: () {
+                                isPlaying ? _player.pause() : _player.play();
+                              },
+                              icon: Icon(
+                                isPlaying ? Icons.pause : Icons.play_arrow,
+                                size: AppSize.s55,
+                                color: ColorManager.black,
+                              ),
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               ),
             ],
