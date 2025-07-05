@@ -5,7 +5,9 @@ import '../../../../core/resources/styles_manager.dart';
 import '../../../../core/resources/values_manager.dart';
 
 class SurahDetailsListViewItem extends StatelessWidget {
-  const SurahDetailsListViewItem({super.key});
+  const SurahDetailsListViewItem({super.key, required this.ayah});
+
+  final String ayah;
 
   @override
   Widget build(BuildContext context) {
@@ -21,13 +23,14 @@ class SurahDetailsListViewItem extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: EdgeInsets.symmetric(
-            vertical: AppPadding.p10,
-            horizontal: AppPadding.p8,
+          padding: EdgeInsets.only(
+            top: AppPadding.p12,
+            right: AppPadding.p8,
+            left: AppPadding.p8,
           ),
           child: Center(
             child: Text(
-              '[1] بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ',
+              ayah,
               textAlign: TextAlign.right,
               style: StylesManager.textStyle20(ColorManager.primaryColor),
             ),

@@ -23,7 +23,7 @@ class SurahDetailsModel extends SurahDetailsEntity {
     this.ayahModel,
     this.edition,
   }) : super(
-         surahTitle: name ?? '',
+         surahTitle: englishName ?? '',
          ayahs: ayahModel ?? [],
          surahNumber: number!,
        );

@@ -1,22 +1,37 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:islami/core/resources/color_manager.dart';
+import 'package:islami/core/widgets/custom_loading_indicator.dart';
+import 'package:islami/features/home/presentation/manager/fetch_surah_details_cubit/fetch_surah_details_cubit.dart';
 
 class SurahDetailsViewAppBar extends StatelessWidget
     implements PreferredSizeWidget {
-  const SurahDetailsViewAppBar({super.key});
+  const SurahDetailsViewAppBar({super.key, required this.surahtitle});
+
+  final String surahtitle;
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      title: Text('Al-Fatiha'),
-      leading: IconButton(
-        color: ColorManager.primaryColor,
-        onPressed: () {
-          GoRouter.of(context).pop();
-        },
-        icon: Icon(Icons.arrow_back_rounded),
-      ),
+    return BlocBuilder<FetchSurahDetailsCubit, FetchSurahDetailsState>(
+      builder: (context, state) {
+        if (state is FetchSurahDetailsSuccess) {
+          return AppBar(
+            title: Text(state.surahDetails.surahTitle),
+            leading: IconButton(
+              color: ColorManager.primaryColor,
+              onPressed: () {
+                GoRouter.of(context).pop();
+              },
+              icon: Icon(Icons.arrow_back_rounded),
+            ),
+          );
+        } else if (state is FetchSurahDetailsFailure) {
+          return Center(child: Text(state.errorMessage));
+        } else {
+          return CustomLoadingIndicator();
+        }
+      },
     );
   }
 

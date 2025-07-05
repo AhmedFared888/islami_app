@@ -7,6 +7,7 @@ import 'package:islami/core/utils/api_service.dart';
 import 'package:islami/features/home/data/data_sources/home_local_data_source.dart';
 import 'package:islami/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:islami/features/home/data/repos/home_repo_impl.dart';
+import 'package:islami/features/home/domain/entities/surah_entity.dart';
 import 'package:islami/features/home/domain/usecases/home_use_case.dart';
 import 'package:islami/features/home/domain/usecases/surah_details_use_case.dart';
 import 'package:islami/features/home/presentation/manager/fetch_surah_details_cubit/fetch_surah_details_cubit.dart';
@@ -71,8 +72,8 @@ class RoutesManager {
       GoRoute(
         path: surahDetailsRoute,
         builder: (context, state) {
-          final surahId = state.extra as int?;
-          if (surahId == null) {
+          final surahEntity = state.extra as SurahEntity?;
+          if (surahEntity == null) {
             return const Scaffold(
               body: Center(child: Text('حدث خطأ: السورة غير موجودة')),
             );
@@ -87,8 +88,8 @@ class RoutesManager {
                   ),
                 ),
               ),
-            )..fetchSurahDetails(surahId),
-            child: SurahDetailsView(),
+            )..fetchSurahDetails(surahEntity.numberOfSurah),
+            child: SurahDetailsView(surahEntity: surahEntity),
           );
         },
       ),
