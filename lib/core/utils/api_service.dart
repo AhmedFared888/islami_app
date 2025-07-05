@@ -1,4 +1,6 @@
 import 'package:dio/dio.dart';
+import 'package:islami/features/radio/domain/entities/audio_state%20.dart';
+import 'package:just_audio/just_audio.dart';
 
 class ApiService {
   final Dio _dio;
@@ -8,5 +10,30 @@ class ApiService {
   Future<Map<String, dynamic>> get({required String endPoint}) async {
     var response = await _dio.get('$baseUrl$endPoint');
     return response.data;
+  }
+}
+
+class AudioService {
+  final _player = AudioPlayer();
+  final String _radioUrl = 'https://n0e.radiojar.com/8s5u5tpdtwzuv';
+
+  bool _isPlaying = false;
+
+  AudioService() {
+    _player.setUrl(_radioUrl);
+  }
+
+  Future<AudioState> toggle() async {
+    if (_player.playing) {
+      await _player.pause();
+    } else {
+      await _player.play();
+    }
+    _isPlaying = _player.playing;
+    return AudioState(isPlaying: _isPlaying);
+  }
+
+  void dispose() {
+    _player.dispose();
   }
 }
