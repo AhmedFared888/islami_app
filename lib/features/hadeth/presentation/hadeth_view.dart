@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class HadethView extends StatelessWidget {
-  const HadethView({super.key});
+class AzkarView extends StatelessWidget {
+  const AzkarView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(body: Center(child: Text('you are now in Azkar View')));
   }
 }

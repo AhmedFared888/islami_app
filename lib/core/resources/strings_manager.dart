@@ -11,14 +11,19 @@ abstract class StringsManager {
       'Enjoy 24/7 Islamic Radio: Quran recitations, daily remembrances, and inspiring Islamic talks — anytime, anywhere.';
 
   // login strings
-  static const userName = 'Username';
-  static const password = 'Password';
-  static const login = 'Login';
-  static const userNameError = 'Please enter your Username';
-  static const passwordError = 'Please enter your Password';
-  static const forgetPassword = 'Forget password';
-  static const registerText = 'Not a member ? Sign up';
+  static const String userName = 'Username';
+  static const String password = 'Password';
+  static const String login = 'Login';
+  static const String userNameError = 'Please enter your Username';
+  static const String passwordError = 'Please enter your Password';
+  static const String forgetPassword = 'Forget password';
+  static const String registerText = 'Not a member ? Sign up';
+
+  //BNB strings
+  static const String quran = 'Quran';
+  static const String azkar = 'Azkar';
+  static const String radio = 'Radio';
 
   // radio strings
-  static const quranKareemRadio = 'اذاعه القرآن الكريم';
+  static const String quranKareemRadio = 'اذاعه القرآن الكريم';
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami/core/resources/assets_manager.dart';
 import 'package:islami/core/resources/color_manager.dart';
+import 'package:islami/core/resources/strings_manager.dart';
 import 'package:islami/features/hadeth/presentation/hadeth_view.dart';
 import 'package:islami/features/home/presentation/views/home_view.dart';
 import 'package:islami/features/radio/presentation/views/radio_view.dart';
@@ -17,7 +18,7 @@ class _MainViewState extends State<MainView> {
 
   final List<Widget> _screens = [
     const HomeView(),
-    const HadethView(),
+    const AzkarView(),
     const RadioView(),
   ];
 
@@ -34,15 +35,15 @@ class _MainViewState extends State<MainView> {
         items: [
           BottomNavigationBarItem(
             icon: Image.asset(AssetsManager.quranBook),
-            label: 'Quran',
+            label: StringsManager.quran,
           ),
           BottomNavigationBarItem(
             icon: Image.asset(AssetsManager.hadethBook),
-            label: 'hadeth',
+            label: StringsManager.azkar,
           ),
           BottomNavigationBarItem(
             icon: Image.asset(AssetsManager.radioLogo),
-            label: 'Radio',
+            label: StringsManager.radio,
           ),
         ],
       ),
