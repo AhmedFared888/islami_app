@@ -19,16 +19,20 @@ class AudioService {
 
   bool _isPlaying = false;
 
-  AudioService() {
-    _player.setUrl(_radioUrl);
-  }
-
   Future<AudioState> toggle() async {
     if (_player.playing) {
       await _player.pause();
     } else {
+      try {
+        // set URL كل مرة لتفادي مشاكل في بعض الأجهزة/المحاكيات
+        await _player.setUrl(_radioUrl);
+      } catch (e) {
+        // ممكن تتجاهله لو حصل قبل كده
+        print('setUrl error: $e');
+      }
       await _player.play();
     }
+
     _isPlaying = !_isPlaying;
     return AudioState(isPlaying: _isPlaying);
   }
