@@ -11,7 +11,7 @@ class AzkarDetailsViewAppbar extends StatelessWidget
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(
-        'اذكار الصباح',
+        'Azkar',
         style: StylesManager.textStyle24(ColorManager.primaryColor),
       ),
       leading: IconButton(
