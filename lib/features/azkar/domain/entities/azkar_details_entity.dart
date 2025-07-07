@@ -1,8 +1,13 @@
 class AzkarDetailsEntity {
-  final String category;
-  final String content;
-  final int count;
-  final String description;
+  final String categoryItem;
+  final String body;
+  final int numberOfRepetitions;
+  final String descriptionOfzekr;
 
-  AzkarDetailsEntity(this.category, this.content, this.count, this.description);
+  AzkarDetailsEntity({
+    required this.categoryItem,
+    required this.body,
+    required this.numberOfRepetitions,
+    required this.descriptionOfzekr,
+  });
 }
