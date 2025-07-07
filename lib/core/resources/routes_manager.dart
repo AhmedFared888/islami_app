@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:islami/core/utils/api_service.dart';
+import 'package:islami/features/azkar/presentation/views/azkar_details_view.dart';
+import 'package:islami/features/azkar/presentation/views/azkar_view.dart';
 import 'package:islami/features/home/data/data_sources/home_local_data_source.dart';
 import 'package:islami/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:islami/features/home/data/repos/home_repo_impl.dart';
@@ -32,6 +34,8 @@ class RoutesManager {
   static const String homeRoute = '/home';
   static const String surahDetailsRoute = '/surahDetails';
   static const String radioRoute = '/radio';
+  static const String azkarRoute = '/azkar';
+  static const String azkarDetailsRoute = '/azkarDetails';
 
   static final router = GoRouter(
     routes: [
@@ -94,6 +98,11 @@ class RoutesManager {
         },
       ),
       GoRoute(path: radioRoute, builder: (context, state) => const RadioView()),
+      GoRoute(path: azkarRoute, builder: (context, state) => const AzkarView()),
+      GoRoute(
+        path: azkarDetailsRoute,
+        builder: (context, state) => const AzkarDetailsView(),
+      ),
     ],
   );
 }
