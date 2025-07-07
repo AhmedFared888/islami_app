@@ -101,7 +101,10 @@ class RoutesManager {
       GoRoute(path: azkarRoute, builder: (context, state) => const AzkarView()),
       GoRoute(
         path: azkarDetailsRoute,
-        builder: (context, state) => const AzkarDetailsView(),
+        builder: (context, state) {
+          final String category = state.extra as String;
+          return AzkarDetailsView(category: category);
+        },
       ),
     ],
   );
