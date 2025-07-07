@@ -20,7 +20,7 @@ class AzkarViewBody extends StatelessWidget {
               children: [
                 Center(child: Image.asset(AssetsManager.homeLogo)),
                 Center(child: Image.asset(AssetsManager.doaa)),
-                Expanded(child: AzkarListView()),
+                const Expanded(child: AzkarListView()),
               ],
             ),
           ),

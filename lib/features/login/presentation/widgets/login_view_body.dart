@@ -43,14 +43,14 @@ class LoginViewBody extends StatelessWidget {
           backgroundColor: ColorManager.backGroundColor,
           body: Center(
             child: Padding(
-              padding: EdgeInsets.symmetric(horizontal: AppPadding.p20),
+              padding: const EdgeInsets.symmetric(horizontal: AppPadding.p20),
               child: Form(
                 key: _formKey,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    LogoObject(),
-                    SizedBox(height: AppSize.s40),
+                    const LogoObject(),
+                    const SizedBox(height: AppSize.s40),
                     CustomTextFormField(
                       textEditingController: _userNameController,
                       hintText: StringsManager.userName,
@@ -65,7 +65,7 @@ class LoginViewBody extends StatelessWidget {
                         return null;
                       },
                     ),
-                    SizedBox(height: AppSize.s30),
+                    const SizedBox(height: AppSize.s30),
                     CustomTextFormField(
                       textEditingController: _passwordController,
                       hintText: StringsManager.password,
@@ -78,7 +78,7 @@ class LoginViewBody extends StatelessWidget {
                         return null;
                       },
                     ),
-                    SizedBox(height: AppSize.s30),
+                    const SizedBox(height: AppSize.s30),
                     ElevatedButton(
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
@@ -88,7 +88,7 @@ class LoginViewBody extends StatelessWidget {
                           );
                         }
                       },
-                      child: Padding(
+                      child: const Padding(
                         padding: EdgeInsets.symmetric(horizontal: AppSize.s140),
                         child: Text(StringsManager.login),
                       ),
@@ -104,7 +104,7 @@ class LoginViewBody extends StatelessWidget {
                             ),
                           ),
                         ),
-                        Spacer(),
+                        const Spacer(),
                         TextButton(
                           onPressed: () {},
                           child: Text(

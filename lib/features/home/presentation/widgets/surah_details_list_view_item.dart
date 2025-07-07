@@ -12,7 +12,7 @@ class SurahDetailsListViewItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(bottom: AppPadding.p8),
+      padding: const EdgeInsets.only(bottom: AppPadding.p8),
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
@@ -23,7 +23,7 @@ class SurahDetailsListViewItem extends StatelessWidget {
           ),
         ),
         child: Padding(
-          padding: EdgeInsets.only(
+          padding: const EdgeInsets.only(
             top: AppPadding.p12,
             right: AppPadding.p8,
             left: AppPadding.p8,

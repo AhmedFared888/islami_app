@@ -46,33 +46,33 @@ ThemeData getApptheme() {
       errorStyle: StylesManager.textStyle12(ColorManager.error),
 
       // enabled border style
-      enabledBorder: OutlineInputBorder(
+      enabledBorder: const OutlineInputBorder(
         borderSide: BorderSide(color: ColorManager.grey, width: AppSize.s1_5),
-        borderRadius: const BorderRadius.all(Radius.circular(AppSize.s8)),
+        borderRadius: BorderRadius.all(Radius.circular(AppSize.s8)),
       ),
 
       // focused border style
-      focusedBorder: OutlineInputBorder(
+      focusedBorder: const OutlineInputBorder(
         borderSide: BorderSide(
           color: ColorManager.primaryColor,
           width: AppSize.s1_5,
         ),
-        borderRadius: const BorderRadius.all(Radius.circular(AppSize.s8)),
+        borderRadius: BorderRadius.all(Radius.circular(AppSize.s8)),
       ),
 
       // error border style
-      errorBorder: OutlineInputBorder(
+      errorBorder: const OutlineInputBorder(
         borderSide: BorderSide(color: ColorManager.error, width: AppSize.s1_5),
-        borderRadius: const BorderRadius.all(Radius.circular(AppSize.s8)),
+        borderRadius: BorderRadius.all(Radius.circular(AppSize.s8)),
       ),
 
       // error border style
-      focusedErrorBorder: OutlineInputBorder(
+      focusedErrorBorder: const OutlineInputBorder(
         borderSide: BorderSide(
           color: ColorManager.primaryColor,
           width: AppSize.s1_5,
         ),
-        borderRadius: const BorderRadius.all(Radius.circular(AppSize.s8)),
+        borderRadius: BorderRadius.all(Radius.circular(AppSize.s8)),
       ),
     ),
     textTheme: TextTheme(

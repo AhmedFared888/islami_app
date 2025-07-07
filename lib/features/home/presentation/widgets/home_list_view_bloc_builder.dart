@@ -16,7 +16,7 @@ class HomeListViewBlocBuilder extends StatelessWidget {
         } else if (state is FetchSurahsFailure) {
           return Center(child: Text(state.errorMessage));
         } else {
-          return CustomLoadingIndicator();
+          return const CustomLoadingIndicator();
         }
       },
     );

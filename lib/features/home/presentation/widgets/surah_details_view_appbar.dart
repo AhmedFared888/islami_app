@@ -23,13 +23,13 @@ class SurahDetailsViewAppBar extends StatelessWidget
               onPressed: () {
                 GoRouter.of(context).pop();
               },
-              icon: Icon(Icons.arrow_back_rounded),
+              icon: const Icon(Icons.arrow_back_rounded),
             ),
           );
         } else if (state is FetchSurahDetailsFailure) {
           return Center(child: Text(state.errorMessage));
         } else {
-          return CustomLoadingIndicator();
+          return const CustomLoadingIndicator();
         }
       },
     );

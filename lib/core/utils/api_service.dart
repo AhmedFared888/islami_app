@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import 'package:islami/features/radio/domain/entities/audio_state%20.dart';
+import 'package:islami/features/radio/domain/entities/audio_state.dart';
 import 'package:just_audio/just_audio.dart';
 
 class ApiService {

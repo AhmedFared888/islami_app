@@ -21,8 +21,8 @@ class HomeListViewItem extends StatelessWidget {
           ),
           trailing: ListTileTrailing(arabicName: surah.arName),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: AppPadding.p30),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: AppPadding.p30),
           child: Divider(),
         ),
       ],

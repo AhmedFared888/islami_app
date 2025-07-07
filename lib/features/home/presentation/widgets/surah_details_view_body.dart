@@ -32,7 +32,7 @@ class SurahDetailsViewBody extends StatelessWidget {
                   Row(
                     children: [
                       Image.asset(AssetsManager.leftCorner),
-                      Spacer(),
+                      const Spacer(),
                       Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -46,11 +46,11 @@ class SurahDetailsViewBody extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Spacer(),
+                      const Spacer(),
                       Image.asset(AssetsManager.rightCorner),
                     ],
                   ),
-                  SizedBox(height: AppSize.s30),
+                  const SizedBox(height: AppSize.s30),
                   Expanded(
                     child: ListView.builder(
                       itemBuilder: (context, index) {
@@ -68,7 +68,7 @@ class SurahDetailsViewBody extends StatelessWidget {
           } else if (state is FetchSurahDetailsFailure) {
             return Center(child: Text(state.errorMessage));
           } else {
-            return CustomLoadingIndicator();
+            return const CustomLoadingIndicator();
           }
         },
       ),

@@ -9,6 +9,7 @@ abstract class StringsManager {
       'Explore authentic Hadiths of the Prophet ﷺ, organized and simplified for easier understanding and daily inspiration.';
   static const String onboardingSubTitle3 =
       'Enjoy 24/7 Islamic Radio: Quran recitations, daily remembrances, and inspiring Islamic talks — anytime, anywhere.';
+  static const String next = 'Next';
 
   // login strings
   static const String userName = 'Username';

@@ -6,6 +6,6 @@ class RadioView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RadioViewBody();
+    return const RadioViewBody();
   }
 }

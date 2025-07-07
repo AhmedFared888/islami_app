@@ -44,8 +44,8 @@ class _SplashViewBodyState extends State<SplashViewBody>
           ),
           Column(
             children: [
-              Row(children: [Spacer(), Image.asset(AssetsManager.glow)]),
-              SizedBox(height: AppSize.s20),
+              Row(children: [const Spacer(), Image.asset(AssetsManager.glow)]),
+              const SizedBox(height: AppSize.s20),
               Image.asset(AssetsManager.logo),
               SlidingImage(slidingAnimation: slidingAnimation),
             ],

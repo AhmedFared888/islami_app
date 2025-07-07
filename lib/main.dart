@@ -25,7 +25,7 @@ void main() async {
 
   Bloc.observer = SimpleBlocObserver();
 
-  runApp(Islami());
+  runApp(const Islami());
 }
 
 class Islami extends StatelessWidget {

@@ -5,7 +5,7 @@ import 'package:islami/core/resources/strings_manager.dart';
 import 'package:islami/core/resources/styles_manager.dart';
 import 'package:islami/core/resources/values_manager.dart';
 import 'package:islami/core/utils/api_service.dart';
-import 'package:islami/features/radio/domain/entities/audio_state%20.dart';
+import 'package:islami/features/radio/domain/entities/audio_state.dart';
 import 'package:islami/features/radio/domain/usecases/toggle_radio_use_case.dart';
 
 class RadioViewBody extends StatefulWidget {

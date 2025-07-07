@@ -41,7 +41,7 @@ class ListTileTitle extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(name, style: StylesManager.textStyle20(ColorManager.white)),
-        SizedBox(height: AppSize.s4),
+        const SizedBox(height: AppSize.s4),
         Text(
           '$versesCount Verses',
           style: StylesManager.textStyle14(ColorManager.white),

@@ -6,6 +6,6 @@ class AzkarView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AzkarViewBody();
+    return const AzkarViewBody();
   }
 }
