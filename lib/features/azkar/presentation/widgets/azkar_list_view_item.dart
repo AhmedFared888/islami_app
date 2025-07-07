@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:islami/core/resources/color_manager.dart';
 import 'package:islami/core/resources/styles_manager.dart';
-import 'package:islami/core/widgets/custom_divider.dart';
 import 'package:islami/features/azkar/data/models/azkar_list_item_model.dart';
 
 class AzkarListViewItem extends StatelessWidget {
@@ -17,7 +16,7 @@ class AzkarListViewItem extends StatelessWidget {
           azkarListItemModel.title,
           style: StylesManager.textStyle24(ColorManager.white),
         ),
-        CustomDivider(),
+        azkarListItemModel.customDivider,
       ],
     );
   }
