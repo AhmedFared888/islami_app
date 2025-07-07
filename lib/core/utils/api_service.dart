@@ -41,3 +41,15 @@ class AudioService {
     _player.dispose();
   }
 }
+
+class AzkarDetailsService {
+  final Dio _dio;
+  final baseUrl =
+      'https://raw.githubusercontent.com/nawafalqari/azkar-api/56df51279ab6eb86dc2f6202c7de26c8948331c1/';
+  AzkarDetailsService(this._dio);
+
+  Future<Map<String, dynamic>> get({required String endPoint}) async {
+    var response = await _dio.get('$baseUrl$endPoint');
+    return response.data;
+  }
+}
