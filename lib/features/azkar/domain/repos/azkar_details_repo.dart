@@ -3,7 +3,7 @@ import 'package:islami/core/errors/failure.dart';
 import 'package:islami/features/azkar/domain/entities/azkar_details_entity.dart';
 
 abstract class AzkarDetailsRepo {
-  Future<Either<Failure, AzkarDetailsEntity>> fetchAzkar({
+  Future<Either<Failure, List<AzkarDetailsEntity>>> fetchAzkar({
     required String category,
   });
 }
