@@ -3,5 +3,7 @@ import 'package:islami/features/azkar/domain/entities/azkar_details_entity.dart'
 
 void saveAzkarData(List<AzkarDetailsEntity> azkar, String boxName) {
   var box = Hive.box<AzkarDetailsEntity>(boxName);
-  box.addAll(azkar);
+  for (var item in azkar) {
+    box.put(item.categoryItem, item); // استخدم categoryItem كمفتاح
+  }
 }
