@@ -20,6 +20,10 @@ abstract class StringsManager {
   static const String forgetPassword = 'Forget password';
   static const String registerText = 'Not a member ? Sign up';
 
+  // register strings
+  static const String register = 'Register';
+  static const String haveAnAcountText = 'Have an account ? Login';
+
   //BNB strings
   static const String quran = 'Quran';
   static const String azkar = 'Azkar';
