@@ -25,6 +25,9 @@ abstract class StringsManager {
   static const String registerNow = 'Register Now';
   static const String register = 'Register';
   static const String haveAnAcountText = 'Have an account ? Login';
+  static const String confirmPassword = 'Confirm password';
+  static const String accountCreatedSuccessfully =
+      'Your account created successfully';
 
   //BNB strings
   static const String quran = 'Quran';
