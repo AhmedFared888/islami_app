@@ -24,7 +24,7 @@ void main() async {
   await Hive.openBox<SurahEntity>(kSurahsBox);
   await Hive.openBox<SurahDetailsEntity>(kSurahDetailsBox);
   await Hive.openBox<AyahEntity>(kAyahBox);
-  await Hive.openBox<AzkarDetailsEntity>(kAzkarBox);
+  await Hive.openBox(kAzkarBox);
 
   Bloc.observer = SimpleBlocObserver();
 

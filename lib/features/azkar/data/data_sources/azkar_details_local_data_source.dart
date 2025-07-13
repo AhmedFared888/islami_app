@@ -9,8 +9,13 @@ abstract class AzkarDetailsLocalDataSource {
 class AzkarDetailsLocalDataSourceImpl extends AzkarDetailsLocalDataSource {
   @override
   List<AzkarDetailsEntity>? fetchAzkarDetails({required String category}) {
-    var box = Hive.box<List<AzkarDetailsEntity>>(kAzkarBox);
-    print(box);
-    return box.get(category);
+    final box = Hive.box(kAzkarBox);
+
+    final dynamic raw = box.get(category);
+
+    if (raw == null || raw is! List) return null;
+
+    // فلترة العناصر من النوع الصح
+    return raw.whereType<AzkarDetailsEntity>().toList();
   }
 }

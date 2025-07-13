@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:islami/core/utils/api_service.dart';
+import 'package:islami/features/azkar/data/data_sources/azkar_details_local_data_source.dart';
+import 'package:islami/features/azkar/data/data_sources/azkar_details_remote_data_source.dart';
+import 'package:islami/features/azkar/data/repos/azkar_details_repo.dart';
+import 'package:islami/features/azkar/domain/usecases/azkar_details_use_case.dart';
+import 'package:islami/features/azkar/presentation/manager/cubit/fetch_azkar_cubit.dart';
 import 'package:islami/features/azkar/presentation/views/azkar_details_view.dart';
 import 'package:islami/features/azkar/presentation/views/azkar_view.dart';
 import 'package:islami/features/home/data/data_sources/home_local_data_source.dart';
@@ -102,8 +107,21 @@ class RoutesManager {
       GoRoute(
         path: azkarDetailsRoute,
         builder: (context, state) {
-          final String category = state.extra as String;
-          return AzkarDetailsView(category: category);
+          final extra = state.extra as Map<String, String>;
+          final String category = extra['category']!;
+          final String title = extra['title']!;
+
+          return BlocProvider(
+            create: (context) => FetchAzkarCubit(
+              AzkarDetailsUseCase(
+                AzkarDetailsRepoImpl(
+                  AzkarDetailsLocalDataSourceImpl(),
+                  AzkarDetailsRemoteDataSourceImpl(AzkarDetailsService(Dio())),
+                ),
+              ),
+            )..fetshAzkar(category),
+            child: AzkarDetailsView(category: category, title: title),
+          );
         },
       ),
     ],
