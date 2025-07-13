@@ -41,96 +41,102 @@ class LoginViewBody extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           backgroundColor: ColorManager.backGroundColor,
-          body: Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: AppPadding.p20),
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const LogoObject(),
-                    const SizedBox(height: AppSize.s70),
-                    Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        StringsManager.pleaseLogin,
-                        style: StylesManager.textStyle24(
-                          ColorManager.primaryColor,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: AppSize.s20),
-                    CustomTextFormField(
-                      textEditingController: _userNameController,
-                      hintText: StringsManager.userName,
-                      labelText: StringsManager.userName,
-                      keyboardType: TextInputType.emailAddress,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Email cannot be empty';
-                        } else if (!value.contains('@')) {
-                          return 'Enter a valid email';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(height: AppSize.s30),
-                    CustomTextFormField(
-                      textEditingController: _passwordController,
-                      hintText: StringsManager.password,
-                      labelText: StringsManager.password,
-                      isPassword: true,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Password cannot be empty';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(height: AppSize.s30),
-                    ElevatedButton(
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          BlocProvider.of<LoginCubit>(context).loginUser(
-                            email: _userNameController.text.trim(),
-                            password: _passwordController.text.trim(),
-                          );
-                        }
-                      },
-                      child: const Padding(
-                        padding: EdgeInsets.symmetric(horizontal: AppSize.s140),
-                        child: Text(StringsManager.login),
-                      ),
-                    ),
-                    Row(
+          body: SafeArea(
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: AppPadding.p20),
+                child: Form(
+                  key: _formKey,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        TextButton(
-                          onPressed: () {},
+                        const LogoObject(),
+                        const SizedBox(height: AppSize.s70),
+                        Align(
+                          alignment: Alignment.centerLeft,
                           child: Text(
-                            StringsManager.forgetPassword,
-                            style: StylesManager.textStyle14(
+                            StringsManager.pleaseLogin,
+                            style: StylesManager.textStyle24(
                               ColorManager.primaryColor,
                             ),
                           ),
                         ),
-                        const Spacer(),
-                        TextButton(
-                          onPressed: () {
-                            GoRouter.of(
-                              context,
-                            ).push(RoutesManager.registerRoute);
+                        const SizedBox(height: AppSize.s20),
+                        CustomTextFormField(
+                          textEditingController: _userNameController,
+                          hintText: StringsManager.userName,
+                          labelText: StringsManager.userName,
+                          keyboardType: TextInputType.emailAddress,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Email cannot be empty';
+                            } else if (!value.contains('@')) {
+                              return 'Enter a valid email';
+                            }
+                            return null;
                           },
-                          child: Text(
-                            StringsManager.registerText,
-                            style: StylesManager.textStyle14(
-                              ColorManager.primaryColor,
+                        ),
+                        const SizedBox(height: AppSize.s30),
+                        CustomTextFormField(
+                          textEditingController: _passwordController,
+                          hintText: StringsManager.password,
+                          labelText: StringsManager.password,
+                          isPassword: true,
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Password cannot be empty';
+                            }
+                            return null;
+                          },
+                        ),
+                        const SizedBox(height: AppSize.s30),
+                        ElevatedButton(
+                          onPressed: () {
+                            if (_formKey.currentState!.validate()) {
+                              BlocProvider.of<LoginCubit>(context).loginUser(
+                                email: _userNameController.text.trim(),
+                                password: _passwordController.text.trim(),
+                              );
+                            }
+                          },
+                          child: const Padding(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: AppSize.s140,
                             ),
+                            child: Text(StringsManager.login),
                           ),
+                        ),
+                        Row(
+                          children: [
+                            TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                StringsManager.forgetPassword,
+                                style: StylesManager.textStyle14(
+                                  ColorManager.primaryColor,
+                                ),
+                              ),
+                            ),
+                            const Spacer(),
+                            TextButton(
+                              onPressed: () {
+                                GoRouter.of(
+                                  context,
+                                ).push(RoutesManager.registerRoute);
+                              },
+                              child: Text(
+                                StringsManager.registerText,
+                                style: StylesManager.textStyle14(
+                                  ColorManager.primaryColor,
+                                ),
+                              ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),
