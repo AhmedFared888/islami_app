@@ -29,11 +29,11 @@ abstract class StringsManager {
   static const String morningAzkar = 'اذكــار الصـبـاح';
   static const String eveningAzkar = 'أذكــار المـسـاء';
   static const String azkarAfterPraying = 'أذكار بعد السلام من الصلاة المفروضة';
-  static const String tsabeh = 'تســابيــح';
+  static const String miscellaneous = 'اذكــار مـتـنـوعـه';
   static const String sleepingAzkar = 'أذكــار النــوم';
   static const String wakingUpAzkar = 'أذكــار الاستـيقـاظ';
-  static const String quranyDouaa = 'أدعيــة قـرآنيــة';
-  static const String prophetsDouaa = 'أدعيــة الأنـبيـاء';
+  static const String khalaAzkar = 'أذكــار الخــلاء';
+  static const String hajjAndUmrahAzkar = 'أذكــار الحــج و العــمره';
 
   // radio strings
   static const String quranKareemRadio = 'اذاعه القرآن الكريم';
