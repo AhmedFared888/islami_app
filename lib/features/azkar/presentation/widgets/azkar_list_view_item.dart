@@ -22,7 +22,10 @@ class AzkarListViewItem extends StatelessWidget {
           onTap: () {
             GoRouter.of(context).push(
               RoutesManager.azkarDetailsRoute,
-              extra: azkarListItemModel.title,
+              extra: {
+                'title': azkarListItemModel.title,
+                'category': azkarListItemModel.apiKey,
+              },
             );
           },
         ),

@@ -12,34 +12,42 @@ class AzkarListView extends StatelessWidget {
     List<AzkarListItemModel> azkarItems = [
       AzkarListItemModel(
         title: StringsManager.morningAzkar,
+        apiKey: 'morning_azkar',
         customDivider: const CustomDivider(),
       ),
       AzkarListItemModel(
         title: StringsManager.eveningAzkar,
+        apiKey: 'evening_azkar',
         customDivider: const CustomDivider(),
       ),
       AzkarListItemModel(
         title: StringsManager.azkarAfterPraying,
+        apiKey: 'prayer_later_azkar',
         customDivider: const CustomDivider(),
       ),
       AzkarListItemModel(
-        title: StringsManager.tsabeh,
+        title: StringsManager.miscellaneous,
+        apiKey: 'miscellaneous_azkar',
         customDivider: const CustomDivider(),
       ),
       AzkarListItemModel(
         title: StringsManager.sleepingAzkar,
+        apiKey: 'sleep_azkar',
         customDivider: const CustomDivider(),
       ),
       AzkarListItemModel(
         title: StringsManager.wakingUpAzkar,
+        apiKey: 'wake_up_azkar',
         customDivider: const CustomDivider(),
       ),
       AzkarListItemModel(
-        title: StringsManager.quranyDouaa,
+        title: StringsManager.khalaAzkar,
+        apiKey: 'khala_azkar',
         customDivider: const CustomDivider(),
       ),
       AzkarListItemModel(
-        title: StringsManager.prophetsDouaa,
+        title: StringsManager.hajjAndUmrahAzkar,
+        apiKey: 'hajj_and_umrah_azkar',
         customDivider: const CustomDivider(),
       ),
     ];
