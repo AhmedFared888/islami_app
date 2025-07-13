@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:islami/features/radio/domain/entities/audio_state.dart';
 import 'package:just_audio/just_audio.dart';
 
 class ApiService {
@@ -17,24 +16,15 @@ class AudioService {
   final _player = AudioPlayer();
   final String _radioUrl = 'https://n0e.radiojar.com/8s5u5tpdtwzuv';
 
-  bool _isPlaying = false;
+  Stream<bool> get playingStream => _player.playingStream;
 
-  Future<AudioState> toggle() async {
+  Future<void> toggle() async {
     if (_player.playing) {
       await _player.pause();
     } else {
-      try {
-        // set URL كل مرة لتفادي مشاكل في بعض الأجهزة/المحاكيات
-        await _player.setUrl(_radioUrl);
-      } catch (e) {
-        // ممكن تتجاهله لو حصل قبل كده
-        print('setUrl error: $e');
-      }
+      await _player.setUrl(_radioUrl);
       await _player.play();
     }
-
-    _isPlaying = !_isPlaying;
-    return AudioState(isPlaying: _isPlaying);
   }
 
   void dispose() {

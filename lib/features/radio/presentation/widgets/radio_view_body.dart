@@ -5,7 +5,6 @@ import 'package:islami/core/resources/strings_manager.dart';
 import 'package:islami/core/resources/styles_manager.dart';
 import 'package:islami/core/resources/values_manager.dart';
 import 'package:islami/core/utils/api_service.dart';
-import 'package:islami/features/radio/domain/entities/audio_state.dart';
 import 'package:islami/features/radio/domain/usecases/toggle_radio_use_case.dart';
 
 class RadioViewBody extends StatefulWidget {
@@ -19,8 +18,6 @@ class _RadioViewBodyState extends State<RadioViewBody> {
   final AudioService _audioService = AudioService();
   late final ToggleRadioUseCase _toggleUseCase;
 
-  bool _isPlaying = false;
-
   @override
   void initState() {
     super.initState();
@@ -28,21 +25,12 @@ class _RadioViewBodyState extends State<RadioViewBody> {
   }
 
   Future<void> _togglePlayPause() async {
-    final result = await _toggleUseCase.execute();
-    if (!mounted) return;
-    result.fold((failure) => print('Error: ${failure.message}'), (
-      AudioState state,
-    ) {
-      if (!mounted) return;
-      setState(() {
-        _isPlaying = state.isPlaying;
-      });
-    });
+    await _toggleUseCase.execute(); // مش محتاج ترجع AudioState هنا
   }
 
   @override
   void dispose() {
-    _audioService.dispose(); // Important to stop the player
+    _audioService.dispose();
     super.dispose();
   }
 
@@ -86,13 +74,21 @@ class _RadioViewBodyState extends State<RadioViewBody> {
                           ),
                         ),
                         const SizedBox(height: AppSize.s10),
-                        IconButton(
-                          onPressed: _togglePlayPause,
-                          icon: Icon(
-                            _isPlaying ? Icons.pause : Icons.play_arrow,
-                            size: AppSize.s55,
-                            color: ColorManager.black,
-                          ),
+
+                        // ✅ هنا التغيير:
+                        StreamBuilder<bool>(
+                          stream: _audioService.playingStream,
+                          builder: (context, snapshot) {
+                            final isPlaying = snapshot.data ?? false;
+                            return IconButton(
+                              onPressed: _togglePlayPause,
+                              icon: Icon(
+                                isPlaying ? Icons.pause : Icons.play_arrow,
+                                size: AppSize.s55,
+                                color: ColorManager.black,
+                              ),
+                            );
+                          },
                         ),
                       ],
                     ),
