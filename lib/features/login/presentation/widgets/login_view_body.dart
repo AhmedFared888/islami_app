@@ -50,7 +50,17 @@ class LoginViewBody extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const LogoObject(),
-                    const SizedBox(height: AppSize.s40),
+                    const SizedBox(height: AppSize.s70),
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(
+                        StringsManager.pleaseLogin,
+                        style: StylesManager.textStyle24(
+                          ColorManager.primaryColor,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: AppSize.s20),
                     CustomTextFormField(
                       textEditingController: _userNameController,
                       hintText: StringsManager.userName,

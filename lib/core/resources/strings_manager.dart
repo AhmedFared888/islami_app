@@ -12,6 +12,7 @@ abstract class StringsManager {
   static const String next = 'Next';
 
   // login strings
+  static const String pleaseLogin = 'Please Login';
   static const String userName = 'Username';
   static const String password = 'Password';
   static const String login = 'Login';
@@ -21,6 +22,7 @@ abstract class StringsManager {
   static const String registerText = 'Not a member ? Sign up';
 
   // register strings
+  static const String registerNow = 'Register Now';
   static const String register = 'Register';
   static const String haveAnAcountText = 'Have an account ? Login';
 
