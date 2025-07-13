@@ -27,6 +27,9 @@ import 'package:islami/features/login/presentation/login_view.dart';
 import 'package:islami/features/login/presentation/manager/cubit/login_cubit.dart';
 import 'package:islami/features/onBoarding/presentation/onboarding_view.dart';
 import 'package:islami/features/radio/presentation/views/radio_view.dart';
+import 'package:islami/features/register/data/repos/register_repo_impl.dart';
+import 'package:islami/features/register/domain/usecases/register_usecase.dart';
+import 'package:islami/features/register/presentation/manager/cubit/register_cubit.dart';
 import 'package:islami/features/register/presentation/views/register_view.dart';
 import 'package:islami/features/splash/presentation/splash_view.dart';
 
@@ -65,7 +68,12 @@ class RoutesManager {
       ),
       GoRoute(
         path: registerRoute,
-        builder: (context, state) => const RegisterView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => RegisterCubit(
+            RegisterUsecase(RegisterRepoImpl(FirebaseAuth.instance)),
+          ),
+          child: const RegisterView(),
+        ),
       ),
       GoRoute(path: homeRoute, builder: (context, state) => const HomeView()),
       GoRoute(
