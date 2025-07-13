@@ -17,25 +17,22 @@ class AzkarDetailsEntityAdapter extends TypeAdapter<AzkarDetailsEntity> {
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return AzkarDetailsEntity(
-      categoryItem: fields[0] as String,
+      zekrId: fields[0] as int,
       body: fields[1] as String,
-      numberOfRepetitions: fields[2] as int,
-      descriptionOfzekr: fields[3] as String,
+      countOfZekr: fields[2] as int,
     );
   }
 
   @override
   void write(BinaryWriter writer, AzkarDetailsEntity obj) {
     writer
-      ..writeByte(4)
+      ..writeByte(3)
       ..writeByte(0)
-      ..write(obj.categoryItem)
+      ..write(obj.zekrId)
       ..writeByte(1)
       ..write(obj.body)
       ..writeByte(2)
-      ..write(obj.numberOfRepetitions)
-      ..writeByte(3)
-      ..write(obj.descriptionOfzekr);
+      ..write(obj.countOfZekr);
   }
 
   @override

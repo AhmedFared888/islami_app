@@ -5,18 +5,15 @@ part 'azkar_details_entity.g.dart';
 @HiveType(typeId: 3)
 class AzkarDetailsEntity {
   @HiveField(0)
-  final String categoryItem;
+  final int zekrId;
   @HiveField(1)
   final String body;
   @HiveField(2)
-  final int numberOfRepetitions;
-  @HiveField(3)
-  final String descriptionOfzekr;
+  final int countOfZekr;
 
   AzkarDetailsEntity({
-    required this.categoryItem,
+    required this.zekrId,
     required this.body,
-    required this.numberOfRepetitions,
-    required this.descriptionOfzekr,
+    required this.countOfZekr,
   });
 }
