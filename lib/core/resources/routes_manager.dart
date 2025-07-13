@@ -27,6 +27,7 @@ import 'package:islami/features/login/presentation/login_view.dart';
 import 'package:islami/features/login/presentation/manager/cubit/login_cubit.dart';
 import 'package:islami/features/onBoarding/presentation/onboarding_view.dart';
 import 'package:islami/features/radio/presentation/views/radio_view.dart';
+import 'package:islami/features/register/presentation/views/register_view.dart';
 import 'package:islami/features/splash/presentation/splash_view.dart';
 
 import '../../features/main/presentation/main_view.dart';
@@ -41,6 +42,7 @@ class RoutesManager {
   static const String radioRoute = '/radio';
   static const String azkarRoute = '/azkar';
   static const String azkarDetailsRoute = '/azkarDetails';
+  static const String registerRoute = '/register';
 
   static final router = GoRouter(
     routes: [
@@ -60,6 +62,10 @@ class RoutesManager {
           ),
           child: const LoginView(),
         ),
+      ),
+      GoRoute(
+        path: registerRoute,
+        builder: (context, state) => const RegisterView(),
       ),
       GoRoute(path: homeRoute, builder: (context, state) => const HomeView()),
       GoRoute(

@@ -106,7 +106,11 @@ class LoginViewBody extends StatelessWidget {
                         ),
                         const Spacer(),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            GoRouter.of(
+                              context,
+                            ).push(RoutesManager.registerRoute);
+                          },
                           child: Text(
                             StringsManager.registerText,
                             style: StylesManager.textStyle14(
