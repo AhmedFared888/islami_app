@@ -29,6 +29,10 @@ abstract class StringsManager {
   static const String accountCreatedSuccessfully =
       'Your account created successfully';
 
+  // forget password strings
+  static const String enterYourEmail = 'Enter Your Email';
+  static const String resetPassword = 'Reset Password';
+
   //BNB strings
   static const String quran = 'Quran';
   static const String azkar = 'Azkar';
