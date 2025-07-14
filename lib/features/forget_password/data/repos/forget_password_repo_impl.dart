@@ -17,6 +17,7 @@ class ForgetPasswordRepoImpl extends ForgetPasswordRepo {
       await firebaseAuth.sendPasswordResetEmail(email: email);
       return right(UserEntity(uid: '', email: email));
     } on FirebaseAuthException catch (e) {
+      print('Firebase Error Code: ${e.code}');
       return left(Failure(_mapFirebaseAuthError(e.code)));
     } catch (e) {
       return Left(Failure('حدث خطأ غير متوقع'));
