@@ -11,6 +11,7 @@ import 'package:islami/features/azkar/domain/usecases/azkar_details_use_case.dar
 import 'package:islami/features/azkar/presentation/manager/cubit/fetch_azkar_cubit.dart';
 import 'package:islami/features/azkar/presentation/views/azkar_details_view.dart';
 import 'package:islami/features/azkar/presentation/views/azkar_view.dart';
+import 'package:islami/features/forget_password/presentation/views/forget_password_view.dart';
 import 'package:islami/features/home/data/data_sources/home_local_data_source.dart';
 import 'package:islami/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:islami/features/home/data/repos/home_repo_impl.dart';
@@ -46,6 +47,7 @@ class RoutesManager {
   static const String azkarRoute = '/azkar';
   static const String azkarDetailsRoute = '/azkarDetails';
   static const String registerRoute = '/register';
+  static const String forgetPasswordRoute = '/forgetPassword';
 
   static final router = GoRouter(
     routes: [
@@ -74,6 +76,10 @@ class RoutesManager {
           ),
           child: const RegisterView(),
         ),
+      ),
+      GoRoute(
+        path: forgetPasswordRoute,
+        builder: (context, state) => const ForgetPasswordView(),
       ),
       GoRoute(path: homeRoute, builder: (context, state) => const HomeView()),
       GoRoute(
