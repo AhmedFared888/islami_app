@@ -11,6 +11,9 @@ import 'package:islami/features/azkar/domain/usecases/azkar_details_use_case.dar
 import 'package:islami/features/azkar/presentation/manager/cubit/fetch_azkar_cubit.dart';
 import 'package:islami/features/azkar/presentation/views/azkar_details_view.dart';
 import 'package:islami/features/azkar/presentation/views/azkar_view.dart';
+import 'package:islami/features/forget_password/data/repos/forget_password_repo_impl.dart';
+import 'package:islami/features/forget_password/domain/usecases/reset_password_usecase.dart';
+import 'package:islami/features/forget_password/presentation/manager/cubit/forgetpassword_cubit.dart';
 import 'package:islami/features/forget_password/presentation/views/forget_password_view.dart';
 import 'package:islami/features/home/data/data_sources/home_local_data_source.dart';
 import 'package:islami/features/home/data/data_sources/home_remote_data_source.dart';
@@ -79,7 +82,14 @@ class RoutesManager {
       ),
       GoRoute(
         path: forgetPasswordRoute,
-        builder: (context, state) => const ForgetPasswordView(),
+        builder: (context, state) => BlocProvider(
+          create: (context) => ForgetPasswordCubit(
+            ForgetPasswordUsecase(
+              ForgetPasswordRepoImpl(FirebaseAuth.instance),
+            ),
+          ),
+          child: const ForgetPasswordView(),
+        ),
       ),
       GoRoute(path: homeRoute, builder: (context, state) => const HomeView()),
       GoRoute(
