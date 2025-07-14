@@ -110,7 +110,11 @@ class LoginViewBody extends StatelessWidget {
                         Row(
                           children: [
                             TextButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                GoRouter.of(
+                                  context,
+                                ).push(RoutesManager.forgetPasswordRoute);
+                              },
                               child: Text(
                                 StringsManager.forgetPassword,
                                 style: StylesManager.textStyle14(
