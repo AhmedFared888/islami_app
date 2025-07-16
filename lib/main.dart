@@ -5,6 +5,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:islami/constants.dart';
 import 'package:islami/core/resources/routes_manager.dart';
 import 'package:islami/core/resources/theme_manager.dart';
+import 'package:islami/core/utils/functions/service_locator.dart';
 import 'package:islami/core/utils/simple_bloc_observer.dart';
 import 'package:islami/features/azkar/domain/entities/azkar_details_entity.dart';
 import 'package:islami/features/home/domain/entities/ayah_entity.dart';
@@ -25,6 +26,8 @@ void main() async {
   await Hive.openBox<SurahDetailsEntity>(kSurahDetailsBox);
   await Hive.openBox<AyahEntity>(kAyahBox);
   await Hive.openBox(kAzkarBox);
+
+  setupServiceLocator();
 
   Bloc.observer = SimpleBlocObserver();
 

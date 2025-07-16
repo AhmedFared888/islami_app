@@ -1,22 +1,25 @@
-import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:islami/core/utils/api_service.dart';
-import 'package:islami/features/azkar/data/data_sources/azkar_details_local_data_source.dart';
-import 'package:islami/features/azkar/data/data_sources/azkar_details_remote_data_source.dart';
+import 'package:islami/core/utils/functions/service_locator.dart';
+import 'package:islami/features/auth/forget_password/data/repos/forget_password_repo_impl.dart';
+import 'package:islami/features/auth/forget_password/domain/usecases/reset_password_usecase.dart';
+import 'package:islami/features/auth/forget_password/presentation/manager/cubit/forgetpassword_cubit.dart';
+import 'package:islami/features/auth/forget_password/presentation/views/forget_password_view.dart';
+import 'package:islami/features/auth/login/data/repos/login_repository_impl.dart';
+import 'package:islami/features/auth/login/domain/usecases/login_usecase.dart';
+import 'package:islami/features/auth/login/presentation/login_view.dart';
+import 'package:islami/features/auth/login/presentation/manager/cubit/login_cubit.dart';
+import 'package:islami/features/auth/register/data/repos/register_repo_impl.dart';
+import 'package:islami/features/auth/register/domain/usecases/register_usecase.dart';
+import 'package:islami/features/auth/register/presentation/manager/cubit/register_cubit.dart';
+import 'package:islami/features/auth/register/presentation/views/register_view.dart';
 import 'package:islami/features/azkar/data/repos/azkar_details_repo.dart';
 import 'package:islami/features/azkar/domain/usecases/azkar_details_use_case.dart';
 import 'package:islami/features/azkar/presentation/manager/cubit/fetch_azkar_cubit.dart';
 import 'package:islami/features/azkar/presentation/views/azkar_details_view.dart';
 import 'package:islami/features/azkar/presentation/views/azkar_view.dart';
-import 'package:islami/features/forget_password/data/repos/forget_password_repo_impl.dart';
-import 'package:islami/features/forget_password/domain/usecases/reset_password_usecase.dart';
-import 'package:islami/features/forget_password/presentation/manager/cubit/forgetpassword_cubit.dart';
-import 'package:islami/features/forget_password/presentation/views/forget_password_view.dart';
-import 'package:islami/features/home/data/data_sources/home_local_data_source.dart';
-import 'package:islami/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:islami/features/home/data/repos/home_repo_impl.dart';
 import 'package:islami/features/home/domain/entities/surah_entity.dart';
 import 'package:islami/features/home/domain/usecases/home_use_case.dart';
@@ -25,16 +28,8 @@ import 'package:islami/features/home/presentation/manager/fetch_surah_details_cu
 import 'package:islami/features/home/presentation/manager/fetch_surahs_cubit/fetch_surahs_cubit.dart';
 import 'package:islami/features/home/presentation/views/home_view.dart';
 import 'package:islami/features/home/presentation/views/surah_details_view.dart';
-import 'package:islami/features/login/data/repos/login_repository_impl.dart';
-import 'package:islami/features/login/domain/usecases/login_usecase.dart';
-import 'package:islami/features/login/presentation/login_view.dart';
-import 'package:islami/features/login/presentation/manager/cubit/login_cubit.dart';
 import 'package:islami/features/onBoarding/presentation/onboarding_view.dart';
 import 'package:islami/features/radio/presentation/views/radio_view.dart';
-import 'package:islami/features/register/data/repos/register_repo_impl.dart';
-import 'package:islami/features/register/domain/usecases/register_usecase.dart';
-import 'package:islami/features/register/presentation/manager/cubit/register_cubit.dart';
-import 'package:islami/features/register/presentation/views/register_view.dart';
 import 'package:islami/features/splash/presentation/splash_view.dart';
 
 import '../../features/main/presentation/main_view.dart';
@@ -95,16 +90,9 @@ class RoutesManager {
       GoRoute(
         path: mainRoute,
         builder: (context, state) => BlocProvider(
-          create: (context) => FetchSurahsCubit(
-            HomeUseCase(
-              HomeRepoImpl(
-                homeLocalDataSource: HomeLocalDataSourceImpl(),
-                homeRemoteDataSource: HomeRemoteDataSourceImpl(
-                  ApiService(Dio()),
-                ),
-              ),
-            ),
-          )..fetshSurahs(),
+          create: (context) =>
+              FetchSurahsCubit(HomeUseCase(getIt.get<HomeRepoImpl>()))
+                ..fetshSurahs(),
           child: const MainView(),
         ),
       ),
@@ -119,14 +107,7 @@ class RoutesManager {
           }
           return BlocProvider(
             create: (context) => FetchSurahDetailsCubit(
-              SurahDetailsUseCase(
-                HomeRepoImpl(
-                  homeLocalDataSource: HomeLocalDataSourceImpl(),
-                  homeRemoteDataSource: HomeRemoteDataSourceImpl(
-                    ApiService(Dio()),
-                  ),
-                ),
-              ),
+              SurahDetailsUseCase(getIt.get<HomeRepoImpl>()),
             )..fetchSurahDetails(surahEntity.numberOfSurah),
             child: SurahDetailsView(surahEntity: surahEntity),
           );
@@ -143,12 +124,7 @@ class RoutesManager {
 
           return BlocProvider(
             create: (context) => FetchAzkarCubit(
-              AzkarDetailsUseCase(
-                AzkarDetailsRepoImpl(
-                  AzkarDetailsLocalDataSourceImpl(),
-                  AzkarDetailsRemoteDataSourceImpl(AzkarDetailsService(Dio())),
-                ),
-              ),
+              AzkarDetailsUseCase(getIt.get<AzkarDetailsRepoImpl>()),
             )..fetshAzkar(category),
             child: AzkarDetailsView(category: category, title: title),
           );
