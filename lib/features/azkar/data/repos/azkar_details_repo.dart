@@ -10,10 +10,10 @@ class AzkarDetailsRepoImpl extends AzkarDetailsRepo {
   final AzkarDetailsLocalDataSource azkarDetailsLocalDataSource;
   final AzkarDetailsRemoteDataSource azkarDetailsRemoteDataSource;
 
-  AzkarDetailsRepoImpl(
-    this.azkarDetailsLocalDataSource,
-    this.azkarDetailsRemoteDataSource,
-  );
+  AzkarDetailsRepoImpl({
+    required this.azkarDetailsLocalDataSource,
+    required this.azkarDetailsRemoteDataSource,
+  });
 
   @override
   Future<Either<Failure, List<AzkarDetailsEntity>>> fetchAzkar({
