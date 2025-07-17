@@ -38,6 +38,11 @@ abstract class StringsManager {
   static const String azkar = 'Azkar';
   static const String radio = 'Radio';
 
+  // show dialog Strings
+  static const String settings = 'Settings';
+  static const String changeLanguage = 'Change Language';
+  static const String logOut = 'Log Out';
+
   //azkar strings
   static const String morningAzkar = 'اذكــار الصـبـاح';
   static const String eveningAzkar = 'أذكــار المـسـاء';
