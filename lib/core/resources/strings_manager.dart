@@ -1,58 +1,54 @@
 abstract class StringsManager {
   // onboarding strings
-  static const String onboardingTitle1 = 'Read & Reflect';
-  static const String onboardingTitle2 = 'Live the Sunnah';
-  static const String onboardingTitle3 = 'Listen & Stay Connected';
-  static const String onboardingSubTitle1 =
-      'Immerse yourself in the Holy Quran with beautiful recitations and simple, clear explanations to help you reflect deeply.';
-  static const String onboardingSubTitle2 =
-      'Explore authentic Hadiths of the Prophet ﷺ, organized and simplified for easier understanding and daily inspiration.';
-  static const String onboardingSubTitle3 =
-      'Enjoy 24/7 Islamic Radio: Quran recitations, daily remembrances, and inspiring Islamic talks — anytime, anywhere.';
-  static const String next = 'Next';
+  static const String onboardingTitle1 = 'onboardingTitle1';
+  static const String onboardingTitle2 = 'onboardingTitle2';
+  static const String onboardingTitle3 = 'onboardingTitle3';
+  static const String onboardingSubTitle1 = 'onboardingSubTitle1';
+  static const String onboardingSubTitle2 = 'onboardingSubTitle2';
+  static const String onboardingSubTitle3 = 'onboardingSubTitle3';
+  static const String next = 'next';
 
   // login strings
-  static const String pleaseLogin = 'Please Login';
-  static const String userName = 'Username';
-  static const String password = 'Password';
-  static const String login = 'Login';
-  static const String userNameError = 'Please enter your Username';
-  static const String passwordError = 'Please enter your Password';
-  static const String forgetPassword = 'Forget password';
-  static const String registerText = 'Not a member ? Sign up';
+  static const String pleaseLogin = 'pleaseLogin';
+  static const String userName = 'userName';
+  static const String password = 'password';
+  static const String login = 'login';
+  static const String userNameError = 'userNameError';
+  static const String passwordError = 'passwordError';
+  static const String forgetPassword = 'forgetPassword';
+  static const String registerText = 'registerText';
 
   // register strings
-  static const String registerNow = 'Register Now';
-  static const String register = 'Register';
-  static const String haveAnAcountText = 'Have an account ? Login';
-  static const String confirmPassword = 'Confirm password';
-  static const String accountCreatedSuccessfully =
-      'Your account created successfully';
+  static const String registerNow = 'registerNow';
+  static const String register = 'register';
+  static const String haveAnAcountText = 'haveAnAcountText';
+  static const String confirmPassword = 'confirmPassword';
+  static const String accountCreatedSuccessfully = 'accountCreatedSuccessfully';
 
   // forget password strings
-  static const String enterYourEmail = 'Enter Your Email';
-  static const String resetPassword = 'Reset Password';
+  static const String enterYourEmail = 'enterYourEmail';
+  static const String resetPassword = 'resetPassword';
 
   //BNB strings
-  static const String quran = 'Quran';
-  static const String azkar = 'Azkar';
-  static const String radio = 'Radio';
+  static const String quran = 'quran';
+  static const String azkar = 'azkar';
+  static const String radio = 'radio';
 
   // show dialog Strings
-  static const String settings = 'Settings';
-  static const String changeLanguage = 'Change Language';
-  static const String logOut = 'Log Out';
+  static const String settings = 'settings';
+  static const String changeLanguage = 'changeLanguage';
+  static const String logOut = 'logOut';
 
   //azkar strings
-  static const String morningAzkar = 'اذكــار الصـبـاح';
-  static const String eveningAzkar = 'أذكــار المـسـاء';
-  static const String azkarAfterPraying = 'أذكار بعد السلام من الصلاة المفروضة';
-  static const String miscellaneous = 'اذكــار مـتـنـوعـه';
-  static const String sleepingAzkar = 'أذكــار النــوم';
-  static const String wakingUpAzkar = 'أذكــار الاستـيقـاظ';
-  static const String khalaAzkar = 'أذكــار الخــلاء';
-  static const String hajjAndUmrahAzkar = 'أذكــار الحــج و العــمره';
+  static const String morningAzkar = 'morningAzkar';
+  static const String eveningAzkar = 'eveningAzkar';
+  static const String azkarAfterPraying = 'azkarAfterPraying';
+  static const String miscellaneous = 'miscellaneous';
+  static const String sleepingAzkar = 'sleepingAzkar';
+  static const String wakingUpAzkar = 'wakingUpAzkar';
+  static const String khalaAzkar = 'khalaAzkar';
+  static const String hajjAndUmrahAzkar = 'hajjAndUmrahAzkar';
 
   // radio strings
-  static const String quranKareemRadio = 'اذاعه القرآن الكريم';
+  static const String quranKareemRadio = 'quranKareemRadio';
 }
