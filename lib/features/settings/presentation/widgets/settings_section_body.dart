@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:islami/core/resources/color_manager.dart';
+import 'package:islami/core/resources/routes_manager.dart';
 import 'package:islami/core/resources/strings_manager.dart';
 import 'package:islami/core/resources/styles_manager.dart';
 import 'package:islami/core/widgets/custom_divider.dart';
@@ -14,6 +16,7 @@ class SettingsSectionBody extends StatelessWidget {
       title: const Text(StringsManager.changeLanguage),
       trailing: const Icon(Icons.arrow_forward_ios_rounded),
       onTap: () {},
+      routeName: '',
     ),
 
     ListTileModel(
@@ -21,6 +24,7 @@ class SettingsSectionBody extends StatelessWidget {
       title: const Text(StringsManager.logOut),
       trailing: const Icon(Icons.arrow_forward_ios_rounded),
       onTap: () {},
+      routeName: RoutesManager.loginRoute,
     ),
   ];
 
@@ -47,7 +51,11 @@ class SettingsSectionBody extends StatelessWidget {
                       ColorManager.primaryColor,
                     ),
                     trailing: item.trailing,
-                    onTap: item.onTap,
+                    onTap: () {
+                      if (item.routeName == RoutesManager.loginRoute) {
+                        GoRouter.of(context).pushReplacement(item.routeName!);
+                      }
+                    },
                   );
                 },
                 itemCount: list.length,
