@@ -5,6 +5,7 @@ import 'package:islami/core/resources/strings_manager.dart';
 import 'package:islami/features/azkar/presentation/views/azkar_view.dart';
 import 'package:islami/features/home/presentation/views/home_view.dart';
 import 'package:islami/features/radio/presentation/views/radio_view.dart';
+import 'package:islami/features/settings/presentation/widgets/show_settings_dialog.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
@@ -25,6 +26,18 @@ class _MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.menu_rounded),
+          color: ColorManager.primaryColor,
+          onPressed: () {
+            showSettingsDialog(context);
+          },
+        ),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
       body: _screens[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: ColorManager.primaryColor,
