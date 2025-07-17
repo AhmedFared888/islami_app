@@ -100,8 +100,8 @@ class LoginViewBody extends StatelessWidget {
                               );
                             }
                           },
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
                               horizontal: AppSize.s140,
                             ),
                             child: Text(StringsManager.login),

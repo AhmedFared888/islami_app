@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,6 +16,7 @@ import 'package:islami/features/home/domain/entities/surah_entity.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+  await EasyLocalization.ensureInitialized();
 
   await Hive.initFlutter();
   Hive.registerAdapter(SurahEntityAdapter()); // typeId = 0
@@ -31,7 +33,19 @@ void main() async {
 
   Bloc.observer = SimpleBlocObserver();
 
-  runApp(const Islami());
+  runApp(
+    EasyLocalization(
+      supportedLocales: const [Locale('en'), Locale('ar')],
+      path: 'assets/translations',
+      fallbackLocale: const Locale('en'),
+      saveLocale: false,
+      child: Builder(
+        builder: (context) {
+          return const Islami();
+        },
+      ),
+    ),
+  );
 }
 
 class Islami extends StatelessWidget {
@@ -43,6 +57,9 @@ class Islami extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routerConfig: RoutesManager.router,
       theme: getApptheme(),
+      locale: context.locale,
+      supportedLocales: context.supportedLocales,
+      localizationsDelegates: context.localizationDelegates,
     );
   }
 }

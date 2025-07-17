@@ -1,54 +1,51 @@
+import 'package:easy_localization/easy_localization.dart';
+
 abstract class StringsManager {
-  // onboarding strings
-  static const String onboardingTitle1 = 'onboardingTitle1';
-  static const String onboardingTitle2 = 'onboardingTitle2';
-  static const String onboardingTitle3 = 'onboardingTitle3';
-  static const String onboardingSubTitle1 = 'onboardingSubTitle1';
-  static const String onboardingSubTitle2 = 'onboardingSubTitle2';
-  static const String onboardingSubTitle3 = 'onboardingSubTitle3';
-  static const String next = 'next';
+  static String get onboardingTitle1 => 'onboardingTitle1'.tr();
+  static String get onboardingTitle2 => 'onboardingTitle2'.tr();
+  static String get onboardingTitle3 => 'onboardingTitle3'.tr();
 
-  // login strings
-  static const String pleaseLogin = 'pleaseLogin';
-  static const String userName = 'userName';
-  static const String password = 'password';
-  static const String login = 'login';
-  static const String userNameError = 'userNameError';
-  static const String passwordError = 'passwordError';
-  static const String forgetPassword = 'forgetPassword';
-  static const String registerText = 'registerText';
+  static String get onboardingSubTitle1 => 'onboardingSubTitle1'.tr();
+  static String get onboardingSubTitle2 => 'onboardingSubTitle2'.tr();
+  static String get onboardingSubTitle3 => 'onboardingSubTitle3'.tr();
 
-  // register strings
-  static const String registerNow = 'registerNow';
-  static const String register = 'register';
-  static const String haveAnAcountText = 'haveAnAcountText';
-  static const String confirmPassword = 'confirmPassword';
-  static const String accountCreatedSuccessfully = 'accountCreatedSuccessfully';
+  static String get next => 'next'.tr();
 
-  // forget password strings
-  static const String enterYourEmail = 'enterYourEmail';
-  static const String resetPassword = 'resetPassword';
+  static String get pleaseLogin => 'pleaseLogin'.tr();
+  static String get userName => 'userName'.tr();
+  static String get password => 'password'.tr();
+  static String get login => 'login'.tr();
+  static String get userNameError => 'userNameError'.tr();
+  static String get passwordError => 'passwordError'.tr();
+  static String get forgetPassword => 'forgetPassword'.tr();
+  static String get registerText => 'registerText'.tr();
 
-  //BNB strings
-  static const String quran = 'quran';
-  static const String azkar = 'azkar';
-  static const String radio = 'radio';
+  static String get registerNow => 'registerNow'.tr();
+  static String get register => 'register'.tr();
+  static String get haveAnAcountText => 'haveAnAcountText'.tr();
+  static String get confirmPassword => 'confirmPassword'.tr();
+  static String get accountCreatedSuccessfully =>
+      'accountCreatedSuccessfully'.tr();
 
-  // show dialog Strings
-  static const String settings = 'settings';
-  static const String changeLanguage = 'changeLanguage';
-  static const String logOut = 'logOut';
+  static String get enterYourEmail => 'enterYourEmail'.tr();
+  static String get resetPassword => 'resetPassword'.tr();
 
-  //azkar strings
-  static const String morningAzkar = 'morningAzkar';
-  static const String eveningAzkar = 'eveningAzkar';
-  static const String azkarAfterPraying = 'azkarAfterPraying';
-  static const String miscellaneous = 'miscellaneous';
-  static const String sleepingAzkar = 'sleepingAzkar';
-  static const String wakingUpAzkar = 'wakingUpAzkar';
-  static const String khalaAzkar = 'khalaAzkar';
-  static const String hajjAndUmrahAzkar = 'hajjAndUmrahAzkar';
+  static String get quran => 'quran'.tr();
+  static String get azkar => 'azkar'.tr();
+  static String get radio => 'radio'.tr();
 
-  // radio strings
-  static const String quranKareemRadio = 'quranKareemRadio';
+  static String get settings => 'settings'.tr();
+  static String get changeLanguage => 'changeLanguage'.tr();
+  static String get logOut => 'logOut'.tr();
+
+  static String get morningAzkar => 'morningAzkar'.tr();
+  static String get eveningAzkar => 'eveningAzkar'.tr();
+  static String get azkarAfterPraying => 'azkarAfterPraying'.tr();
+  static String get miscellaneous => 'miscellaneous'.tr();
+  static String get sleepingAzkar => 'sleepingAzkar'.tr();
+  static String get wakingUpAzkar => 'wakingUpAzkar'.tr();
+  static String get khalaAzkar => 'khalaAzkar'.tr();
+  static String get hajjAndUmrahAzkar => 'hajjAndUmrahAzkar'.tr();
+
+  static String get quranKareemRadio => 'quranKareemRadio'.tr();
 }

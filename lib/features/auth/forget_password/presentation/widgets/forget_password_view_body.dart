@@ -90,8 +90,8 @@ class ForgetPasswordViewBody extends StatelessWidget {
                               );
                             }
                           },
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
                               horizontal: AppSize.s100,
                             ),
                             child: Text(StringsManager.resetPassword),

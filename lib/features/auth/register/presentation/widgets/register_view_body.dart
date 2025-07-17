@@ -33,9 +33,7 @@ class RegisterViewBody extends StatelessWidget {
         } else if (state is RegisterSuccess) {
           Navigator.of(context).pop();
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(
-              content: Text(StringsManager.accountCreatedSuccessfully),
-            ),
+            SnackBar(content: Text(StringsManager.accountCreatedSuccessfully)),
           );
           GoRouter.of(context).pushReplacement(RoutesManager.loginRoute);
         } else if (state is RegisterFailure) {
@@ -122,8 +120,8 @@ class RegisterViewBody extends StatelessWidget {
                               );
                             }
                           },
-                          child: const Padding(
-                            padding: EdgeInsets.symmetric(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
                               horizontal: AppSize.s125,
                             ),
                             child: Text(StringsManager.register),

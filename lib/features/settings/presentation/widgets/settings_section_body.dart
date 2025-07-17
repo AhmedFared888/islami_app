@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:islami/core/resources/color_manager.dart';
@@ -5,31 +6,37 @@ import 'package:islami/core/resources/routes_manager.dart';
 import 'package:islami/core/resources/strings_manager.dart';
 import 'package:islami/core/resources/styles_manager.dart';
 import 'package:islami/core/widgets/custom_divider.dart';
-import 'package:islami/features/settings/data/list_tile_model.dart';
+import 'package:islami/features/settings/data/models/list_tile_model.dart';
 
 class SettingsSectionBody extends StatelessWidget {
   SettingsSectionBody({super.key});
 
-  List<ListTileModel> list = [
-    ListTileModel(
-      leading: const Icon(Icons.language),
-      title: const Text(StringsManager.changeLanguage),
-      trailing: const Icon(Icons.arrow_forward_ios_rounded),
-      onTap: () {},
-      routeName: '',
-    ),
-
-    ListTileModel(
-      leading: const Icon(Icons.logout_outlined),
-      title: const Text(StringsManager.logOut),
-      trailing: const Icon(Icons.arrow_forward_ios_rounded),
-      onTap: () {},
-      routeName: RoutesManager.loginRoute,
-    ),
-  ];
-
   @override
   Widget build(BuildContext context) {
+    List<ListTileModel> list = [
+      ListTileModel(
+        leading: const Icon(Icons.language),
+        title: Text(StringsManager.changeLanguage),
+        trailing: const Icon(Icons.arrow_forward_ios_rounded),
+        onTap: () {
+          final currentLocale = context.locale;
+          if (currentLocale.languageCode == 'en') {
+            context.setLocale(const Locale('ar'));
+          } else {
+            context.setLocale(const Locale('en'));
+          }
+        },
+      ),
+
+      ListTileModel(
+        leading: const Icon(Icons.logout_outlined),
+        title: Text(StringsManager.logOut),
+        trailing: const Icon(Icons.arrow_forward_ios_rounded),
+        onTap: () {
+          GoRouter.of(context).pushReplacement(RoutesManager.loginRoute);
+        },
+      ),
+    ];
     return Scaffold(
       backgroundColor: ColorManager.backGroundColor,
       body: SafeArea(
@@ -51,11 +58,7 @@ class SettingsSectionBody extends StatelessWidget {
                       ColorManager.primaryColor,
                     ),
                     trailing: item.trailing,
-                    onTap: () {
-                      if (item.routeName == RoutesManager.loginRoute) {
-                        GoRouter.of(context).pushReplacement(item.routeName!);
-                      }
-                    },
+                    onTap: item.onTap,
                   );
                 },
                 itemCount: list.length,
