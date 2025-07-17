@@ -38,7 +38,6 @@ void main() async {
       supportedLocales: const [Locale('en'), Locale('ar')],
       path: 'assets/translations',
       fallbackLocale: const Locale('en'),
-      saveLocale: false,
       child: Builder(
         builder: (context) {
           return const Islami();
